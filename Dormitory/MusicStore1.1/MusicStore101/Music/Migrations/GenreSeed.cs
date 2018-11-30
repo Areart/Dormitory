@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 
 namespace Music.Migrations
@@ -67,8 +68,35 @@ namespace Music.Migrations
                 new Album {Title="U",Genre=genres.Single(g=>g.Name=="DJ"),Price=5.99M,Artist=artists.Single(a=>a.Name=="张惠妹"),AlbumArtUrl="/" },
                 new Album {Title="V",Genre=genres.Single(g=>g.Name=="DJ"),Price=5.99M,Artist=artists.Single(a=>a.Name=="老狼"),AlbumArtUrl="/" },
                 new Album {Title="W",Genre=genres.Single(g=>g.Name=="拉丁"),Price=5.99M,Artist=artists.Single(a=>a.Name=="孙楠"),AlbumArtUrl="/" },
+                new Album {Title="X",Genre=genres.Single(g=>g.Name=="古典"),Price=7.99M,Artist=artists.Single(a=>a.Name=="吴莫愁"),AlbumArtUrl="/" },
                 new Album {Title="Y",Genre=genres.Single(g=>g.Name=="蓝调"),Price=5.99M,Artist=artists.Single(a=>a.Name=="王三溥"),AlbumArtUrl="/" },
                 new Album {Title="Z",Genre=genres.Single(g=>g.Name=="流行"),Price=5.99M,Artist=artists.Single(a=>a.Name=="Fine乐团"),AlbumArtUrl="/" },
+                new Album {Title="A1",Genre=genres.Single(g=>g.Name=="摇滚"),Price=7.99M,Artist=artists.Single(a=>a.Name=="吴莫愁"),AlbumArtUrl="/" },
+                new Album {Title="B1",Genre=genres.Single(g=>g.Name=="摇滚"),Price=9.99M,Artist=artists.Single(a=>a.Name=="张惠妹"),AlbumArtUrl="/" },
+                new Album {Title="C1",Genre=genres.Single(g=>g.Name=="爵士"),Price=6.99M,Artist=artists.Single(a=>a.Name=="孙楠"),AlbumArtUrl="/" },
+                new Album {Title="D1",Genre=genres.Single(g=>g.Name=="重金属"),Price=5.99M,Artist=artists.Single(a=>a.Name=="万晓利"),AlbumArtUrl="/" },
+                new Album {Title="E1",Genre=genres.Single(g=>g.Name=="慢摇"),Price=8.69M,Artist=artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/" },
+                new Album {Title="F1",Genre=genres.Single(g=>g.Name=="蓝调"),Price=2.99M,Artist=artists.Single(a=>a.Name=="孙楠"),AlbumArtUrl="/" },
+                new Album {Title="G1",Genre=genres.Single(g=>g.Name=="拉丁"),Price=3.99M,Artist=artists.Single(a=>a.Name=="Fine乐团"),AlbumArtUrl="/" },
+                new Album {Title="H1",Genre=genres.Single(g=>g.Name=="流行"),Price=5.99M,Artist=artists.Single(a=>a.Name=="洪启"),AlbumArtUrl="/" },
+                new Album {Title="I1",Genre=genres.Single(g=>g.Name=="古典"),Price=6.99M,Artist=artists.Single(a=>a.Name=="王三溥"),AlbumArtUrl="/" },
+                new Album {Title="J1",Genre=genres.Single(g=>g.Name=="DJ"),Price=8.69M,Artist=artists.Single(a=>a.Name=="孙楠"),AlbumArtUrl="/" },
+                new Album {Title="K1",Genre=genres.Single(g=>g.Name=="嘻哈"),Price=8.99M,Artist=artists.Single(a=>a.Name=="老狼"),AlbumArtUrl="/" },
+                new Album {Title="L1",Genre=genres.Single(g=>g.Name=="流行"),Price=7.99M,Artist=artists.Single(a=>a.Name=="吴莫愁"),AlbumArtUrl="/" },
+                new Album {Title="N1",Genre=genres.Single(g=>g.Name=="流行"),Price=5.99M,Artist=artists.Single(a=>a.Name=="王三溥"),AlbumArtUrl="/" },
+                new Album {Title="M1",Genre=genres.Single(g=>g.Name=="嘻哈"),Price=8.99M,Artist=artists.Single(a=>a.Name=="老狼"),AlbumArtUrl="/" },
+                new Album {Title="O1",Genre=genres.Single(g=>g.Name=="古典"),Price=7.99M,Artist=artists.Single(a=>a.Name=="吴莫愁"),AlbumArtUrl="/" },
+                new Album {Title="P1",Genre=genres.Single(g=>g.Name=="爵士"),Price=5.99M,Artist=artists.Single(a=>a.Name=="万晓利"),AlbumArtUrl="/" },
+                new Album {Title="Q1",Genre=genres.Single(g=>g.Name=="拉丁"),Price=7.99M,Artist=artists.Single(a=>a.Name=="吴莫愁"),AlbumArtUrl="/" },
+                new Album {Title="R1",Genre=genres.Single(g=>g.Name=="DJ"),Price=5.99M,Artist=artists.Single(a=>a.Name=="老狼"),AlbumArtUrl="/" },
+                new Album {Title="S1",Genre=genres.Single(g=>g.Name=="DJ"),Price=5.99M,Artist=artists.Single(a=>a.Name=="万晓利"),AlbumArtUrl="/" },
+                new Album {Title="T1",Genre=genres.Single(g=>g.Name=="重金属"),Price=5.99M,Artist=artists.Single(a=>a.Name=="老狼"),AlbumArtUrl="/" },
+                new Album {Title="U1",Genre=genres.Single(g=>g.Name=="DJ"),Price=5.99M,Artist=artists.Single(a=>a.Name=="张惠妹"),AlbumArtUrl="/" },
+                new Album {Title="V1",Genre=genres.Single(g=>g.Name=="DJ"),Price=5.99M,Artist=artists.Single(a=>a.Name=="老狼"),AlbumArtUrl="/" },
+                new Album {Title="W1",Genre=genres.Single(g=>g.Name=="拉丁"),Price=5.99M,Artist=artists.Single(a=>a.Name=="孙楠"),AlbumArtUrl="/" },
+                new Album {Title="X1",Genre=genres.Single(g=>g.Name=="古典"),Price=7.99M,Artist=artists.Single(a=>a.Name=="吴莫愁"),AlbumArtUrl="/" },
+                new Album {Title="Y1",Genre=genres.Single(g=>g.Name=="蓝调"),Price=5.99M,Artist=artists.Single(a=>a.Name=="王三溥"),AlbumArtUrl="/" },
+                new Album {Title="Z1",Genre=genres.Single(g=>g.Name=="流行"),Price=5.99M,Artist=artists.Single(a=>a.Name=="Fine乐团"),AlbumArtUrl="/" }
 
             };
             foreach (var a in artists)
@@ -80,6 +108,17 @@ namespace Music.Migrations
                 _dbContext.Albums.Add(a);
             }
             _dbContext.SaveChanges();
+        }
+        public static void Extend()
+        {
+            var ablums = _dbContext.Albums.ToList();
+            foreach(var album in ablums)
+            {
+                var item = _dbContext.Albums.Find(album.ID);
+                item.GenreId = item.Genre.ID.ToString();
+                item.ArtistId = item.Artist.ID.ToString();
+                Thread.Sleep(5);
+            }
         }
     }
 }
