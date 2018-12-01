@@ -5,8 +5,18 @@
     text-align: center;
 }
 #min_ul_1{
-    width: 400px;
+    padding: 0;
+    width: 250px;
     list-style: none;
-    margin-right: 30px;
-    
+    float: right;
+}
+#min_ul_1>li{
+    width: 100%;
+    border: 1px solid rgb(196, 195, 195);
+    background: #eee;
+    border-radius :5px;
+    height: 30px;
+    margin-bottom: 2px;
+    line-height: 30px;
+    text-align: center;
 }
