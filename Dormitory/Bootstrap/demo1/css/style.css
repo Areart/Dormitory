@@ -72,3 +72,97 @@
 #min_min_music>div>div:nth-last-child(1){
    margin: 0;
 }
+/* 电影板块 */
+#min_min_Film{
+    width: 900px;
+    margin-top: 20px;
+    padding: 0;
+}
+#min_min_Film>span{
+    width: 900px;
+    font-size: 30px;    
+    text-align: left;    
+}
+#min_min_Film>div{
+    margin-top: 10px;
+    width: 900px;  
+}
+#min_min_Film>div>div{
+    float: left;
+    margin-right: 33.33px;
+    width: 200px;
+    height: 270px; 
+    background: rebeccapurple; 
+}
+#min_min_Film>div>div:nth-last-child(1){
+   margin: 0;
+}
+/* 游戏 */
+#min_min_game{
+    width: 900px;
+    margin-top: 20px;
+    padding: 0;
+}
+#min_min_game>span{
+    width: 900px;
+    font-size: 30px;    
+    text-align: left;    
+}
+#min_min_game>div{
+    margin-top: 10px;
+    width: 900px;  
+}
+#min_min_game>div>div{
+    float: left;
+    margin-right: 33.33px;
+    width: 200px;
+    height: 270px; 
+    background: rebeccapurple; 
+}
+#min_min_game>div>div:nth-last-child(1){
+   margin: 0;
+}
+/* 链接 */
+#min_min_bt{
+    width: 900px;
+    margin-top: 20px;
+    padding: 0;
+}
+#min_min_bt>span{
+    width: 900px;
+    font-size: 30px;    
+    text-align: left;    
+}
+#min_min_bt>div{
+    margin-top: 10px;
+    width: 900px;  
+}
+#min_min_bt>div>div{
+    float: left;
+    margin-right: 33.33px;
+    width: 200px;
+    height: 270px; 
+    background: rebeccapurple; 
+}
+#min_min_bt>div>div:nth-last-child(1){
+   margin: 0;
+}
+/* 尾部 */
+#footer{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 900px;
+    height: 50px;
+    padding: 0;
+}
+#footer_mian{
+    width: 900px;
+    height: 50px;
+}
+#footer_mian>p{
+    width: 900px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+
+}
