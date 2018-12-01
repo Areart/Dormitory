@@ -1,0 +1,6 @@
+#header_ul{
+    float: right;
+}
+#header_ul>li>a{
+    text-align: center;
+}
