@@ -4,3 +4,9 @@
 #header_ul>li>a{
     text-align: center;
 }
+#min_ul_1{
+    width: 400px;
+    list-style: none;
+    margin-right: 30px;
+    
+}
