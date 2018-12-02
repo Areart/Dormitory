@@ -238,6 +238,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\Browser.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
