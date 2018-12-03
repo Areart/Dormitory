@@ -9,13 +9,13 @@
     text-align: center;
 }
 #min_ul_1{
-    width: 300px;
     list-style: none;
     float: left;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f1f1f1;
 }
 #min_ul_1>li{
-    width: 300pxl;
-    border: 1px solid rgb(196, 195, 195);
     background: #eee;
     border-radius :5px;
     height: 30px;
@@ -29,16 +29,12 @@
 }
 #min{
     margin: 0 auto;
-    width: 900px; 
-    position: relative;
-    background: burlywood;  
+    position: relative; 
 }
 #min_header{
-    width: 300px;
     padding: 0;
 }
 #min_header1{
-    width: 600px;
     padding: 0;
 }
 #min_min{
