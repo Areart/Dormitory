@@ -30,23 +30,29 @@
         </div>
     </div>
 </body>
-<script>            var index = 0;//默认情况下的第一个按钮变成绿色
-        var aSpan = document.querySelectorAll("span");//找到网页上所有的span元素
-        var aListName = ["list1", "list2", "list3", "list4", "list5"];
-        var aLi = document.querySelectorAll("li");
-        function setLineBColor() {
-            for (var i=0, len = aSpan.length; i < len; i++) {
-                aSpan[i].style.background = "#cccccc";
-            }
-            aSpan[index].style.background = "#45c17c";
+<script>
+    var index = 0;//默认情况下的第一个按钮变成绿色
+    var aSpan = document.querySelectorAll("span");//找到网页上所有的span元素
+    var aListName = ["list1", "list2", "list3", "list4", "list5"];
+    var aLi = document.querySelectorAll("li");
+    function setLineBColor() {
+        for (var i = 0, len = aSpan.length; i < len; i++) {
+            aSpan[i].style.background = "#cccccc";
         }
-        
-        function nextPic() {                
-            aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
-            aListName.pop();//删除最后一个
-            for (var i=0, len = aLi.length; i < len; i++) {
-                aLi[i].setAttribute("class", aListName[i]);//重新给li定义类名
-            }
+        aSpan[index].style.background = "#45c17c";
+    }
+    function nextPic() {
+        aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
+        aListName.pop();//删除最后一个
+        for (var i = 0, len = aLi.length; i < len; i++) {
+            aLi[i].setAttribute("class", aListName[i]);//重新给li定义类名
         }
+        index++;
+        if (index > 4) {
+            index = 0;
+        }
+        setLineBColor();
+    }
 </script>
+
 </html>
