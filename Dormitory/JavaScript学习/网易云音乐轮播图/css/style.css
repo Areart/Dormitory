@@ -32,24 +32,26 @@ ul{
 .list1{
     transform: translateX(0) scale(0.81);
     transform-origin: 0% 100%;
-    z-index: 1;
+    z-index: 2;
 }
 .list2{
     transform: translateX(235px);
-    z-index: 2;
+    z-index: 3;
 }
 .list3{    
     transform: translateX(470px) scale(0.81);
     transform-origin: 100% 100%;
-    z-index: 1;
+    z-index: 2;
 }
 .list4{    
-    transform: translateX(705px) scale(0.81);
+    transform: translateX(235px) scale(0.81);
     transform-origin: 100% 100%;
+    z-index: 1;
 }
 .list5{    
-    transform: translateX(840px) scale(0.81);
+    transform: translateX(235px) scale(0.81);
     transform-origin: 100% 100%;
+    z-index: 1;
 }
 .lineb{
     width: 1200px;

@@ -53,6 +53,18 @@
         }
         setLineBColor();
     }
+    function prePic() {
+        aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
+        aListName.shift();//删除第一值
+        for (var i = 0, len = aLi.length; i < len; i++) {
+            aLi[i].setAttribute("class", aListName[i]);//重新给li定义类名
+        }
+        index--;
+        if (index < 0) {
+            index = 4;
+        }
+        setLineBColor();
+    }
 </script>
 
 </html>
