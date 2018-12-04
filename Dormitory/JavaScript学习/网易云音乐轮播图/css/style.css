@@ -27,7 +27,7 @@ ul{
     position:absolute;
     width: 730px;
     height: 336px;
-    
+    transition: all 0.5s;
 }
 .list1{
     transform: translateX(0) scale(0.81);
@@ -54,10 +54,11 @@ ul{
 .lineb{
     width: 1200px;
     height: 31px;
+    text-align: center;
     background-color: #33b630;
 }
 .lineb>span{
-    display: block;
+    display: inline-block;
     width: 35px;
     height: 3px;
     background-color: #cccccc;
