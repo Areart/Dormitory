@@ -22,68 +22,67 @@
             </ul>
         </div>
         <div class="banner_lineb">
+            <div class="0"><span></span></div>
             <div class="1"><span></span></div>
             <div class="2"><span></span></div>
             <div class="3"><span></span></div>
             <div class="4"><span></span></div>
-            <div class="5"><span></span></div>
         </div>
     </div>
-    <script>
-        var li = document.getElementsByClassName("banner_imglist")[0].children[0];//获取轮播图的ul项
-        var lis = li.children;//获取li        
-        var index = 0;//默认情况下的第一个按钮变成绿色
-        var span = document.getElementsByClassName("banner_lineb")[0];//获取轮播图的span
-        var aSpan = span.children;
-        var aListName = ["list1", "list2", "list3", "list4", "list5"];//定义一个数组，重新给li定义类名
-        function setbanner_linebColor() {
-            for (var i = 0, len = aSpan.length; i < len; i++) {
-                aSpan[i].children[0].style.background = "#cccccc";
-            }
-            aSpan[index].children[0].style.background = "#45c17c";
+
+</body>
+<script>
+    var li = document.getElementsByClassName("banner_imglist")[0].children[0];//获取轮播图的ul项
+    var lis = li.children;//获取li        
+    var index = 0;//默认情况下的第一个按钮变成绿色
+    var span = document.getElementsByClassName("banner_lineb")[0];//获取轮播图的span
+    var aSpan = span.children;
+    var aListName = ["list1", "list2", "list3", "list4", "list5"];//定义一个数组，重新给li定义类名
+    function setbanner_linebColor() {
+        for (var i = 0, len = aSpan.length; i < len; i++) {
+            aSpan[i].children[0].style.background = "#cccccc";
+        }
+        aSpan[index].children[0].style.background = "#45c17c";
+    }
+    setbanner_linebColor();
+    function nextPic() {
+        aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
+        aListName.pop();//删除最后一个
+        for (var i = 0, len = lis.length; i < len; i++) {
+            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+        }
+        index++;
+        if (index > 4) {
+            index = 0;
         }
         setbanner_linebColor();
-        function nextPic() {
-            aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
-            aListName.pop();//删除最后一个
-            for (var i = 0, len = lis.length; i < len; i++) {
-                lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
-            }
-            index++;
-            if (index > 4) {
-                index = 0;
-            }
-            setbanner_linebColor();
+    }
+    function prePic() {
+        aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
+        aListName.shift();//删除第一值
+        for (var i = 0, len = lis.length; i < len; i++) {
+            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
         }
-        function prePic() {
-            aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
-            aListName.shift();//删除第一值
-            for (var i = 0, len = lis.length; i < len; i++) {
-                lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
-            }
-            index--;
-            if (index < 0) {
-                index = 4;
-            }
-            setbanner_linebColor();
+        index--;
+        if (index < 0) {
+            index = 4;
         }
+        setbanner_linebColor();
+    }
 
-        var list1 = document.getElementsByClassName("list1")[0];
-        var list3 = document.getElementsByClassName("list3")[0];
-        var banner_imglist = document.getElementsByClassName("banner_imglist")[0].children[0];
-        banner_imglist.addEventListener("click", function (ev) {
-            if (ev.target.parentNode.getAttribute("class") === "list3") {
-                nextPic();
-            }
-            if (ev.target.parentNode.getAttribute("class") === "list1") {
-                prePic();
-            }
-        });
-        var banner_lineb = document.getElementsByClassName("banner_lineb")[0 ];
-        banner_lineb.addEventListener("mousemove", function (ev) {
-            alert(ev.target.getAttribute("class"));
-        });
-    </script>
-</body>
+    var list1 = document.getElementsByClassName("list1")[0];
+    var list3 = document.getElementsByClassName("list3")[0];
+    var banner_imglist = document.getElementsByClassName("banner_imglist")[0].children[0];
+    banner_imglist.addEventListener("click", function (ev) {
+        if (ev.target.parentNode.getAttribute("class") === "list3") {
+            nextPic();
+        }
+        if (ev.target.parentNode.getAttribute("class") === "list1") {
+            prePic();
+        }
+    });
+    var time=null;
+    time= setInterval(nextPic, 2500)
+</script>
 
 </html>

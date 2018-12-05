@@ -60,6 +60,7 @@ ul{
     display: inline-block;
     width: 35px;
     height: 35px;
+    margin-right: 10px;
 }
 .banner_lineb>div>span{
     display: inline-block;
