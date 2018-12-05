@@ -43,7 +43,7 @@
             position: absolute;
             top: 0;
 
-            transition: all 5s;
+            transition: all 1s;
         }
 
         .list1 {
@@ -95,7 +95,6 @@
 
 </body>
 <script>
-    window.onload = function () {
         var aLists = ["list1", "list2", "list3", "list4", "list5", "list5", "list5", "list5", "list5", "list5", "list5"];
         var list = document.getElementsByClassName("wrap")[0];
         var lists = list.children;
@@ -107,8 +106,7 @@
             }
         }
 
-        setInterval(nextPic(), 1000);
-    } 
+     window.onload= function(){ setInterval(nextPic, 2500);}  ;
 </script>
 
 </html>
