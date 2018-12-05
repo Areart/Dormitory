@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #perspective {
+            width: 972px;
+            height: 576px;
+            margin: 20px auto;
+            border: 1px solid #fff;
+            overflow: hidden;
+        }
+
+        .wrap {
+            width: 324px;
+            height: 576px;
+            position: relative;
+        }
+
+        .wrap img {
+            position: absolute;
+            top: 0;
+
+            transition: all 5s;
+        }
+
+        .list1 {
+            transform: translateX(-325px);
+            z-index: 1;
+            display: inline;
+        }
+
+        .list2 {
+            transform: translateX(0px);
+            z-index: 2;
+            display: inline;
+        }
+
+        .list3 {
+            transform: translateX(325px);
+            z-index: 3;
+            display: inline;
+        }
+
+        .list4 {
+            transform: translateX(650px);
+            z-index: 4;
+        }
+
+        .list5 {
+            transform: translateX(972px);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="perspective">
+        <div class="wrap">
+            <img src="img/11.png" alt="" class="list1">
+            <img src="img/2.png" alt="" class="list2">
+            <img src="img/3.png" alt="" class="list3">
+            <img src="img/4.png" alt="" class="list4">
+            <img src="img/5.png" alt="" class="list5">
+            <img src="img/6.png" alt="" class="list5">
+            <img src="img/7.png" alt="" class="list5">
+            <img src="img/8.png" alt="" class="list5">
+            <img src="img/9.png" alt="" class="list5">
+            <img src="img/10.png" alt="" class="list5">
+            <img src="img/1.png" alt="" class="list5">
+        </div>
+    </div>
+
+</body>
+<script>
+    window.onload = function () {
+        var aLists = ["list1", "list2", "list3", "list4", "list5", "list5", "list5", "list5", "list5", "list5", "list5"];
+        var list = document.getElementsByClassName("wrap")[0];
+        var lists = list.children;
+        function nextPic() {
+            aLists.unshift(aLists[lists.length - 1]);
+            aLists.pop();
+            for (var i = 0; i < lists.length; i++) {
+                lists[i].setAttribute("class", aLists[i]);
+            }
+        }
+
+        setInterval(nextPic(), 1000);
+    } 
+</script>
+
+</html>
