@@ -57,6 +57,25 @@
         }
         setbanner_linebColor();
     }
+    function netPic1(){
+        aListName.unshift(aListName[4]);
+        aListName.pop();
+        for (var i = 0, len = lis.length; i < len; i++) {
+            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+        }
+        setbanner_linebColor();
+    }
+    function prePic1() {
+        aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
+        aListName.shift();//删除第一值
+        for (var i = 0, len = lis.length; i < len; i++) {
+            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+        }    
+        if (index < 0) {
+            index = 4;
+        }
+        setbanner_linebColor();
+    }
     function prePic() {
         aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
         aListName.shift();//删除第一值
@@ -74,15 +93,41 @@
     var list3 = document.getElementsByClassName("list3")[0];
     var banner_imglist = document.getElementsByClassName("banner_imglist")[0].children[0];
     banner_imglist.addEventListener("click", function (ev) {
+        clearInterval(time);
         if (ev.target.parentNode.getAttribute("class") === "list3") {
             nextPic();
+            time= setInterval(nextPic, 2500);
         }
         if (ev.target.parentNode.getAttribute("class") === "list1") {
             prePic();
+            time= setInterval(nextPic, 2500);
         }
     });
     var time=null;
-    time= setInterval(nextPic, 2500)
+    time= setInterval(nextPic, 2500);
+    var span=document.getElementsByClassName("banner_lineb")[0];
+    span.addEventListener("mouseover",function(ev){
+       clearInterval(time);
+       var spans=ev.target.parentNode.getAttribute("class"); 
+       if(index-spans>0)
+       {
+           for(var i=0;i<index-spans;i++){
+               prePic1();
+           }
+           index= spans;
+           setbanner_linebColor();
+       }
+       if(index-spans<0){
+           for(var i=0;i<spans-index;i++){
+               netPic1();              
+           }
+           index= spans;
+           setbanner_linebColor();
+       }       
+    });
+    span.addEventListener("mouseout",function(ev){
+        time= setInterval(nextPic, 2500);
+    });
 </script>
 
 </html>

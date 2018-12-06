@@ -1,52 +1,60 @@
-body,ul{
+*{
     margin: 0;
-   
+}
+body,ul{
+    margin: 0;   
 }
 body{
-
+    box-sizing: border-box;
     background: red;
+    padding: 0;
 }
 ul{
     list-style: none;
 }
 .banner{
-    width: 100%;
     margin: 100px auto;
-    background: #cccccc;
+    padding: 0;
 }
 .banner_imglist{
     width: 100%;
     height: 100px;
 }
-.banner_imglist>ul{
-    width: 100%;
+.banner_imglist>ul{ 
+    width:275px;
+    height: 100px;
     overflow:hidden;
     position: relative;
+    margin: 0 auto;  
+    margin-left: auto;
+    padding: 0;  
+
 }
 .banner_imglist>ul>li{
     position:absolute;
-    width: 80%;
-    height: auto;
+    width: 200px;
+    height:100px;
     transition: all 0.5s;
 }
 .banner_imglist>ul>li>img{
-    display: block;
-    max-width: 50%;
-    height:auto;
+    width: 200px;
+    height:100px;
 }
 .list1{
     transform: translateX(0) scale(0.81);
     transform-origin: 0% 100%;
+    opacity: 0.9;
     z-index: 2;
 }
 .list2{
-    transform: translateX(18%);
+    transform: translateX(19%);
     transform-origin: 50% 100%;
     z-index: 3;
 }                
 .list3{    
-    transform: translateX(34%) scale(0.81);
+    transform: translateX(76px) scale(0.81);
     transform-origin: 100% 100%;
+    opacity: 0.9;
     z-index: 2;
 }
 .list4{    
@@ -61,15 +69,18 @@ ul{
 }
 .banner_lineb{
     width: 100%;
-    height: 100%;
+    height: 20px;
     text-align: center;
+    line-height: 20px;
 }
 .banner_lineb>div{
     display: inline-block;
-
+    width: 15px;
+    height: 15px;
 }
 .banner_lineb>div>span{
     display: inline-block;
-
+    width: 15px;
+    height: 3px;
     background-color: #cccccc;
 }

@@ -29,6 +29,7 @@ ul{
 .list1{
     transform: translateX(0) scale(0.81);
     transform-origin: 0% 100%;
+    opacity: 0.9;
     z-index: 2;
 }
 .list2{
@@ -39,6 +40,7 @@ ul{
 .list3{    
     transform: translateX(470px) scale(0.81);
     transform-origin: 100% 100%;
+    opacity: 0.9;
     z-index: 2;
 }
 .list4{    
