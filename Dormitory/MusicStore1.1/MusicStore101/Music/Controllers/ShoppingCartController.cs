@@ -62,5 +62,14 @@ namespace Music.Controllers
             var cartItem = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
             return View(cartItem);
         }
+        public ActionResult Delete()
+        {
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return Json("nologin");
+            }
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            return View();
+        }
     }
 }
