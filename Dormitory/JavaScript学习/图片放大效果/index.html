@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模块特效</title>
+    <style>
+        .warp {
+            margin: 100px auto;     
+            width: 192px;
+            height: 158px;        
+        }
+        .Response_tag {
+            width: 192px;
+            height: 158px; 
+            padding: 5px;
+            border: 1px solid #ccc;             
+            border-radius: 5px;  
+        }
+        .Response_tag>div:nth-child(1){
+            overflow: hidden;  
+            width: 192px;
+            height: 108px; 
+            border-radius: 5px;          
+        }
+        .Response_tag>div:nth-child(1)>img{            
+            transform: scale(1);
+            transition: all 0.5s;
+            width: 100%;
+            height: 100%;
+        }
+        .Response_tag>div:nth-last-child(1){
+            width: 192px;
+            height: 50px;           
+        }
+        .Response_tag>div:nth-last-child(1)>p{            
+            width: 192px;
+            text-align: center;          
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <div class="Response_tag" id="Response_tag">
+            <div>
+                <img src="img/1.png" alt="" id="Response_tag_img">
+            </div>
+            <div>
+              <p>这个就很帅</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var Response_tag=document.getElementById("Response_tag"); 
+        var img=document.getElementById("Response_tag_img");    
+        Response_tag.addEventListener("mouseover",function(){
+            img.style.transform="scale(1.4)";
+        });   
+        Response_tag.addEventListener("mouseout",function(){
+            img.style.transform="scale(1)";
+            
+        });  
+    </script>
+</body>
+
+</html>
