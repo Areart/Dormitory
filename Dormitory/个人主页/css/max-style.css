@@ -84,3 +84,69 @@ header>ul>li{
     border-radius: 5px;
     overflow: hidden;
 }
+/* 轮播图 */
+.banner{
+    width: 780px;
+    height: 367px;
+    margin: 100px auto;
+}
+.banner_imglist{
+    width: 780px;
+    height: 336px;
+}
+.banner_imglist>ul{
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    position: relative;
+}
+.banner_imglist>ul>li{
+    position:absolute;
+    width: 730px;
+    height: 336px;
+    transition: all 0.5s;
+}
+.list1{
+    transform: translateX(0) scale(0.81);
+    transform-origin: 0% 100%;
+    opacity: 0.9;
+    z-index: 2;
+}
+.list2{
+    transform: translateX(235px);
+    transform-origin: 50% 100%;
+    z-index: 3;
+}                
+.list3{    
+    transform: translateX(470px) scale(0.81);
+    transform-origin: 100% 100%;
+    opacity: 0.9;
+    z-index: 2;
+}
+.list4{    
+    transform: translateX(235px) scale(0.81);
+    transform-origin: 0% 100%;
+    z-index: 1;
+}
+.list5{    
+    transform: translateX(235px) scale(0.81);
+    transform-origin: 100% 100%;
+    z-index: 1;
+}
+.banner_lineb{
+    width: 780px;
+    height: 35px;
+    text-align: center;
+}
+.banner_lineb>div{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+.banner_lineb>div>span{
+    display: inline-block;
+    width: 35px;
+    height: 3px;
+    background-color: #cccccc;
+}
