@@ -78,16 +78,16 @@
                     function nextPic() {
                         aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
                         aListName.pop();//删除最后一个
+                        index++;
                         for (var i = 0, len = lis.length; i < len; i++) {
                             lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
                         }
-                        index++;
                         if (index > 4) {
                             index = 0;
                         }
                         setbanner_linebColor();
                     }
-                    function netPic1() {
+                    function nextPic1() {
                         aListName.unshift(aListName[4]);
                         aListName.pop();
                         for (var i = 0, len = lis.length; i < len; i++) {
@@ -148,7 +148,7 @@
                         }
                         if (index - spans < 0) {
                             for (var i = 0; i < spans - index; i++) {
-                                netPic1();
+                                nextPic1();
                             }
                             index = spans;
                             setbanner_linebColor();
@@ -158,8 +158,8 @@
                         time = setInterval(nextPic, 2500);
                     });
                 </script>
-                <div>
-                    <div class="Response_tag" id="Response_tag">
+                <div id="Response">
+                    <div class="Response_tag">
                         <div>
                             <img src="img/1.png" alt="" class="Response_tag_img">
                         </div>
@@ -167,7 +167,7 @@
                             <p id="p">这个就很帅</p>
                         </div>
                     </div>
-                    <div class="Response_tag" id="Response_tag">
+                    <div class="Response_tag">
                         <div>
                             <img src="img/1.png" alt="" class="Response_tag_img">
                         </div>
@@ -175,7 +175,7 @@
                             <p id="p">这个就很帅</p>
                         </div>
                     </div>
-                    <div class="Response_tag" id="Response_tag">
+                    <div class="Response_tag">
                         <div>
                             <img src="img/1.png" alt="" class="Response_tag_img">
                         </div>
@@ -185,18 +185,20 @@
                     </div>
 
                 </div>
-                <script>
-                    var Response_tag = document.getElementsByClassName("Response_tag");                 
-                    for (var i = 0; i < Response_tag.length; i++) {
-                        Response_tag[i].addEventListener("mouseover", function () {                        
-                            img[i].style.transform = "scale(1.2)";
-                            Response_tag[i].style.boxShadow = "1px 1px 3px #ccc";
-                        });
-                        Response_tag[i].addEventListener("mouseout", function () {
-                            img[i].style.transform = "scale(1)";
-                            Response_tag[i].style.boxShadow = "none";
-                        });
+                <script>                   
+                    var Response_tag = document.getElementById("Response").getElementsByClassName("Response_tag");
+                    console.log(Response_tag.length)
+                    for(var i=0;i<Response_tag.length;i++){
+                        Response_tag[i].onmouseover=function(){
+                           this.style.boxShadow="1px 1px 3px #ccc";
+                           this.getElementsByClassName("Response_tag_img")[0].style.transform="scale(1.2)";
+                        }
+                        Response_tag[i].onmouseout=function(){
+                           this.style.boxShadow="none";
+                           this.getElementsByClassName("Response_tag_img")[0].style.transform="scale(1)";
+                        }
                     }
+                  
                 </script>
             </div>
         </div>

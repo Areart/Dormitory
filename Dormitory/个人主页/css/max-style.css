@@ -88,10 +88,12 @@ header>ul>li{
 .banner{
     width: 780px;
     height: 254px;
-    margin: 10px auto;
+    margin: 0px auto;
+    text-align: center;
 }
 .banner_imglist{
-    width: 780px;
+    display: inline-block;
+    width: 700px;
     height: 218.4px;
 }
 .banner_imglist>ul{
@@ -117,12 +119,12 @@ header>ul>li{
     z-index: 2;
 }
 .list2{
-    transform: translateX(152.25px);
+    transform: translateX(112.75px);
     transform-origin: 50% 100%;
     z-index: 3;
 }                
 .list3{    
-    transform: translateX(304.5px) scale(0.81);
+    transform: translateX(225.5px) scale(0.81);
     transform-origin: 100% 100%;
     opacity: 0.9;
     z-index: 2;
@@ -140,6 +142,7 @@ header>ul>li{
     z-index: 1;
 }
 .banner_lineb{
+    margin-top: 15px;
     width: 780px;
     height: 35px;
     text-align: center;
@@ -158,12 +161,19 @@ header>ul>li{
 }
 
 /* 标题 */
-.Response_tag {
+#Response{
+   text-align: center;
+   margin-top: 50px;
+}
+.Response_tag{
+    display: inline-block;
     width: 192px;
-    height: 158px; 
+    height: 198px; 
     padding: 5px;
     border: 1px solid #ccc;             
-    border-radius: 5px;  
+    border-radius: 5px;
+    margin: 0 15px;
+  
 }
 .Response_tag>div:nth-child(1){
     overflow: hidden;  
