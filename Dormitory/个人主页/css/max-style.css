@@ -15,17 +15,39 @@ header{
     
 }
 header>ul{    
-    width: 300px;
+    width: 180px;
     height: 30px;
+    margin-top: 30px;
     padding: 0;
     list-style: none;
     float: right;
 }
 header>ul>li{   
-    display: inline-block;
+    float: left;
     text-align: center;
-    width:90px;
+    width:60px;
     height: 30px;
+}
+#nav_main{ 
+    display: none;
+}
+#nav_main1{ 
+    list-style: none;
+    height: 110px;
+    width: 80px;
+    box-shadow: 2px 2px 5px #cccccc;
+    transition: all 5s;
+    transform: translateX(-10px) scale(1,1);    
+    transform-origin: 50% 0%;
+    background: #ccc;
+    padding: 0;
+}
+#nav_main>li{ 
+    width: 80px;
+    height: 30px;
+    margin-top: 5px;
+    line-height: 30px;
+    text-align: center;
 }
 #logo{
     width: 80px;
