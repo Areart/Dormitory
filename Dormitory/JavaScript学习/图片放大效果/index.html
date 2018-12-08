@@ -57,11 +57,12 @@
         var Response_tag=document.getElementById("Response_tag"); 
         var img=document.getElementById("Response_tag_img");    
         Response_tag.addEventListener("mouseover",function(){
-            img.style.transform="scale(1.4)";
+            img.style.transform="scale(1.2)";
+            Response_tag.style.boxShadow="1px 1px 3px #ccc";
         });   
         Response_tag.addEventListener("mouseout",function(){
             img.style.transform="scale(1)";
-            
+            Response_tag.style.boxShadow="none";
         });  
     </script>
 </body>

@@ -1,0 +1,41 @@
+*{
+   margin: 0;
+}
+body{
+    background-color: #f2f2f2;
+}
+#header{
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+}
+header{
+    width: 980px;
+    height: 80px;
+    margin: 0 auto;
+    
+}
+header>ul{    
+    width: 300px;
+    height: 30px;
+    padding: 0;
+    list-style: none;
+    float: right;
+}
+header>ul>li{   
+    display: inline-block;
+    text-align: center;
+    width:90px;
+    height: 30px;
+}
+#logo{
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+#logo>p{
+    text-align: center;
+    line-height: 80px;
+    font-size: 50px;
+    font-family: "方正舒体";
+
+}
