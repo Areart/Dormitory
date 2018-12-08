@@ -20,7 +20,7 @@
                 </div>
                 <ul>
                     <li>主页</li>
-                    <li>收藏
+                    <li id="li">收藏
                         <ul id="nav_main">
                             <li>最新</li>
                             <li>其他</li>
@@ -28,6 +28,16 @@
                         </ul>
                     </li>
                     <li>登录</li>
+                    <script>
+                        var ul=document.getElementById("nav_main");
+                        var li=document.getElementById("li");
+                        li.addEventListener("mouseover",function(){
+                           ul.setAttribute("id","nav_main1");
+                        });
+                        li.addEventListener("mouseout",function(){
+                           ul.setAttribute("id","nav_main");
+                        });
+                    </script>
                 </ul>
             </header>
         </div>
@@ -200,6 +210,9 @@
                     }
                   
                 </script>
+                <div >
+
+                </div>
             </div>
         </div>
         <div id="content">
