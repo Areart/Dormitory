@@ -208,14 +208,17 @@ header>ul>li{
     height: 80px;           
 }
 .Response_tag>div:nth-last-child(1)>p:nth-child(1){ 
-    overflow: hidden; 
-    height: 60px;     
+    margin-top: 10px;
+    overflow: hidden;
+    color: #7c7c7c;
+    height: 50px;     
     width: 192px;
     text-align: left;          
 }
 .Response_tag>div:nth-last-child(1)>p:nth-child(2){ 
     overflow: hidden; 
-    height: 20px;     
+    height: 20px;   
+    color: #7c7c7c;
     line-height: 20px;
     width: 192px;
     text-align: left;          
@@ -273,10 +276,11 @@ header>ul>li{
     float: right;
     border: 1px solid rgb(189, 187, 187);
     border-radius: 5px;
-    background: #ccc;
+    background: rgba(228, 225, 225, 0.671);
     margin-right: 15px;
 }
 #but_div:hover{
+    background: none;
     cursor: pointer;
     letter-spacing: 1px;
 }
