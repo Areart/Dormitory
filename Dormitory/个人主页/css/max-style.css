@@ -249,3 +249,19 @@ header>ul>li{
     cursor: pointer;
     letter-spacing: 1px;
 }
+/* 尾部 */
+#footer{
+    clear: both;
+    width: 980px;
+    margin: 0 auto;    
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+#footer>p{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    size: 16px;
+    line-height: 30px;
+    margin-top: 10px;
+}
