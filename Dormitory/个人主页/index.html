@@ -53,169 +53,174 @@
                 </ul>
             </div>
             <div id="main-right">
-                <div class="banner">
-                    <div class="banner_imglist">
-                        <ul>
-                            <li class="list1"><img src="img/1.jpg" alt=""></li>
-                            <li class="list2"><img src="img/2.jpg" alt=""></li>
-                            <li class="list3"><img src="img/3.jpg" alt=""></li>
-                            <li class="list4"><img src="img/4.jpg" alt=""></li>
-                            <li class="list5"><img src="img/5.jpg" alt=""></li>
-                        </ul>
+                <div id="main_banner">
+                    <div class="banner">
+                        <div class="banner_imglist">
+                            <ul>
+                                <li class="list1"><img src="img/1.jpg" alt=""></li>
+                                <li class="list2"><img src="img/2.jpg" alt=""></li>
+                                <li class="list3"><img src="img/3.jpg" alt=""></li>
+                                <li class="list4"><img src="img/4.jpg" alt=""></li>
+                                <li class="list5"><img src="img/5.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                        <div class="banner_lineb">
+                            <div class="0"><span></span></div>
+                            <div class="1"><span></span></div>
+                            <div class="2"><span></span></div>
+                            <div class="3"><span></span></div>
+                            <div class="4"><span></span></div>
+                        </div>
                     </div>
-                    <div class="banner_lineb">
-                        <div class="0"><span></span></div>
-                        <div class="1"><span></span></div>
-                        <div class="2"><span></span></div>
-                        <div class="3"><span></span></div>
-                        <div class="4"><span></span></div>
-                    </div>
-                </div>
-                <script>
-                    var li = document.getElementsByClassName("banner_imglist")[0].children[0];//获取轮播图的ul项
-                    var lis = li.children;//获取li        
-                    var index = 0;//默认情况下的第一个按钮变成绿色
-                    var span = document.getElementsByClassName("banner_lineb")[0];//获取轮播图的span
-                    var aSpan = span.children;
-                    var aListName = ["list1", "list2", "list3", "list4", "list5"];//定义一个数组，重新给li定义类名
-                    function setbanner_linebColor() {
-                        for (var i = 0, len = aSpan.length; i < len; i++) {
-                            aSpan[i].children[0].style.background = "#cccccc";
-                        }
-                        aSpan[index].children[0].style.background = "#45c17c";
-                    }
-                    setbanner_linebColor();
-                    function nextPic() {
-                        aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
-                        aListName.pop();//删除最后一个
-                        index++;
-                        for (var i = 0, len = lis.length; i < len; i++) {
-                            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
-                        }
-                        if (index > 4) {
-                            index = 0;
+                    <script>
+                        var li = document.getElementsByClassName("banner_imglist")[0].children[0];//获取轮播图的ul项
+                        var lis = li.children;//获取li        
+                        var index = 0;//默认情况下的第一个按钮变成绿色
+                        var span = document.getElementsByClassName("banner_lineb")[0];//获取轮播图的span
+                        var aSpan = span.children;
+                        var aListName = ["list1", "list2", "list3", "list4", "list5"];//定义一个数组，重新给li定义类名
+                        function setbanner_linebColor() {
+                            for (var i = 0, len = aSpan.length; i < len; i++) {
+                                aSpan[i].children[0].style.background = "#cccccc";
+                            }
+                            aSpan[index].children[0].style.background = "#45c17c";
                         }
                         setbanner_linebColor();
-                    }
-                    function nextPic1() {
-                        aListName.unshift(aListName[4]);
-                        aListName.pop();
-                        for (var i = 0, len = lis.length; i < len; i++) {
-                            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                        function nextPic() {
+                            aListName.unshift(aListName[4]);//把数组最后一个名字复制并插入到前面位置来
+                            aListName.pop();//删除最后一个
+                            index++;
+                            for (var i = 0, len = lis.length; i < len; i++) {
+                                lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                            }
+                            if (index > 4) {
+                                index = 0;
+                            }
+                            setbanner_linebColor();
                         }
-                        setbanner_linebColor();
-                    }
-                    function prePic1() {
-                        aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
-                        aListName.shift();//删除第一值
-                        for (var i = 0, len = lis.length; i < len; i++) {
-                            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                        function nextPic1() {
+                            aListName.unshift(aListName[4]);
+                            aListName.pop();
+                            for (var i = 0, len = lis.length; i < len; i++) {
+                                lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                            }
+                            setbanner_linebColor();
                         }
-                        if (index < 0) {
-                            index = 4;
+                        function prePic1() {
+                            aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
+                            aListName.shift();//删除第一值
+                            for (var i = 0, len = lis.length; i < len; i++) {
+                                lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                            }
+                            if (index < 0) {
+                                index = 4;
+                            }
+                            setbanner_linebColor();
                         }
-                        setbanner_linebColor();
-                    }
-                    function prePic() {
-                        aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
-                        aListName.shift();//删除第一值
-                        for (var i = 0, len = lis.length; i < len; i++) {
-                            lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                        function prePic() {
+                            aListName.push(aListName[0]);//把第一个值塞到数组的最后一个位置
+                            aListName.shift();//删除第一值
+                            for (var i = 0, len = lis.length; i < len; i++) {
+                                lis[i].setAttribute("class", aListName[i]);//重新给li定义类名
+                            }
+                            index--;
+                            if (index < 0) {
+                                index = 4;
+                            }
+                            setbanner_linebColor();
                         }
-                        index--;
-                        if (index < 0) {
-                            index = 4;
-                        }
-                        setbanner_linebColor();
-                    }
 
-                    var list1 = document.getElementsByClassName("list1")[0];
-                    var list3 = document.getElementsByClassName("list3")[0];
-                    var banner_imglist = document.getElementsByClassName("banner_imglist")[0].children[0];
-                    banner_imglist.addEventListener("click", function (ev) {
-                        clearInterval(time);
-                        if (ev.target.parentNode.getAttribute("class") === "list3") {
-                            nextPic();
-                            time = setInterval(nextPic, 2500);
-                        }
-                        if (ev.target.parentNode.getAttribute("class") === "list1") {
-                            prePic();
-                            time = setInterval(nextPic, 2500);
-                        }
-                    });
-                    var time = null;
-                    time = setInterval(nextPic, 2500);
-                    var span = document.getElementsByClassName("banner_lineb")[0];
-                    span.addEventListener("mouseover", function (ev) {
-                        clearInterval(time);
-                        var spans = ev.target.parentNode.getAttribute("class");
-                        if (index - spans > 0) {
-                            for (var i = 0; i < index - spans; i++) {
-                                prePic1();
+                        var list1 = document.getElementsByClassName("list1")[0];
+                        var list3 = document.getElementsByClassName("list3")[0];
+                        var banner_imglist = document.getElementsByClassName("banner_imglist")[0].children[0];
+                        banner_imglist.addEventListener("click", function (ev) {
+                            clearInterval(time);
+                            if (ev.target.parentNode.getAttribute("class") === "list3") {
+                                nextPic();
+                                time = setInterval(nextPic, 2500);
                             }
-                            index = spans;
-                            setbanner_linebColor();
-                        }
-                        if (index - spans < 0) {
-                            for (var i = 0; i < spans - index; i++) {
-                                nextPic1();
+                            if (ev.target.parentNode.getAttribute("class") === "list1") {
+                                prePic();
+                                time = setInterval(nextPic, 2500);
                             }
-                            index = spans;
-                            setbanner_linebColor();
-                        }
-                    });
-                    span.addEventListener("mouseout", function (ev) {
+                        });
+                        var time = null;
                         time = setInterval(nextPic, 2500);
-                    });
-                </script>
-                <div id="Response">
-                    <div class="Response_tag">
-                        <div>
-                            <img src="img/1.png" alt="" class="Response_tag_img">
+                        var span = document.getElementsByClassName("banner_lineb")[0];
+                        span.addEventListener("mouseover", function (ev) {
+                            clearInterval(time);
+                            var spans = ev.target.parentNode.getAttribute("class");
+                            if (index - spans > 0) {
+                                for (var i = 0; i < index - spans; i++) {
+                                    prePic1();
+                                }
+                                index = spans;
+                                setbanner_linebColor();
+                            }
+                            if (index - spans < 0) {
+                                for (var i = 0; i < spans - index; i++) {
+                                    nextPic1();
+                                }
+                                index = spans;
+                                setbanner_linebColor();
+                            }
+                        });
+                        span.addEventListener("mouseout", function (ev) {
+                            time = setInterval(nextPic, 2500);
+                        });
+                    </script>
+                    <div id="Response">
+                        <div class="Response_tag">
+                            <div>
+                                <img src="img/1.png" alt="" class="Response_tag_img">
+                            </div>
+                            <div>
+                                <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                                <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                            </div>
                         </div>
-                        <div>
-                            <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
-                            <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                        <div class="Response_tag">
+                            <div>
+                                <img src="img/1.png" alt="" class="Response_tag_img">
+                            </div>
+                            <div>
+                                <p id="p">这个就很帅这个就很帅这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                                <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="Response_tag">
-                        <div>
-                            <img src="img/1.png" alt="" class="Response_tag_img">
+                        <div class="Response_tag">
+                            <div>
+                                <img src="img/1.png" alt="" class="Response_tag_img">
+                            </div>
+                            <div>
+                                <p id="p">这个就很帅这个就很帅这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                                <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
+                            </div>
                         </div>
-                        <div>
-                            <p id="p">这个就很帅这个就很帅这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
-                            <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
-                        </div>
-                    </div>
-                    <div class="Response_tag">
-                        <div>
-                            <img src="img/1.png" alt="" class="Response_tag_img">
-                        </div>
-                        <div>
-                            <p id="p">这个就很帅这个就很帅这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
-                            <p id="p">这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这这个就很帅这个就很帅这</p>
-                        </div>
-                    </div>
 
+                    </div>
+                    <script>
+                        var Response_tag = document.getElementById("Response").getElementsByClassName("Response_tag");
+                        console.log(Response_tag.length)
+                        for (var i = 0; i < Response_tag.length; i++) {
+                            Response_tag[i].onmouseover = function () {
+                                this.style.boxShadow = "1px 1px 3px #ccc";
+                                this.getElementsByClassName("Response_tag_img")[0].style.transform = "scale(1.2)";
+                            }
+                            Response_tag[i].onmouseout = function () {
+                                this.style.boxShadow = "none";
+                                this.getElementsByClassName("Response_tag_img")[0].style.transform = "scale(1)";
+                            }
+                        }
+
+                    </script>
                 </div>
-                <script>
-                    var Response_tag = document.getElementById("Response").getElementsByClassName("Response_tag");
-                    console.log(Response_tag.length)
-                    for (var i = 0; i < Response_tag.length; i++) {
-                        Response_tag[i].onmouseover = function () {
-                            this.style.boxShadow = "1px 1px 3px #ccc";
-                            this.getElementsByClassName("Response_tag_img")[0].style.transform = "scale(1.2)";
-                        }
-                        Response_tag[i].onmouseout = function () {
-                            this.style.boxShadow = "none";
-                            this.getElementsByClassName("Response_tag_img")[0].style.transform = "scale(1)";
-                        }
-                    }
-
-                </script>
+                
+                <div id="main_m">
                 <div id="main_main">
                     <div>
                         <h2>标题</h2>
+                        <span>2018/12/1</span>
                         <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                             内容内容内容内容内容内容
                         </p>
@@ -223,6 +228,7 @@
                     </div>
                     <div>
                         <h2>标题</h2>
+                        <span>2018/12/1</span>
                         <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                             内容内容内容内容内容内容
                         </p>
@@ -230,6 +236,7 @@
                     </div>
                     <div>
                         <h2>标题</h2>
+                        <span>2018/12/1</span>
                         <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                             内容内容内容内容内容内容
                         </p>
@@ -237,6 +244,7 @@
                     </div>
                     <div>
                         <h2>标题</h2>
+                        <span>2018/12/1</span>
                         <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                             内容内容内容内容内容内容
                         </p>
@@ -244,6 +252,7 @@
                     </div>
                     <div>
                         <h2>标题</h2>
+                        <span>2018/12/1</span>
                         <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
                             内容内容内容内容内容内容
                         </p>
@@ -251,10 +260,11 @@
                     </div>
                 </div>
             </div>
-        </div>        
+            </div>
+        </div>
         <div id="footer">
-         <p>这个是没有版权的，但就是不能分享，嘿嘿嘿</p>
-         <p>嘿嘿嘿个人专属</p>
+            <p>这个是没有版权的，但就是不能分享，嘿嘿嘿</p>
+            <p>嘿嘿嘿个人专属</p>
         </div>
     </div>
 </body>
