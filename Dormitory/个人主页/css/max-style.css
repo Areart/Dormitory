@@ -36,10 +36,12 @@ header>ul>li{
     display: none;   
 }
 #nav_main1{ 
+    margin-top: 10px;
     list-style: none;
     height: 110px;
     width: 80px;
     box-shadow: 2px 2px 5px #cccccc;
+    border: 1px  solid #cccccc;
     transition: all 5s;
     transform: translateX(-10px) scale(1,1);    
     transform-origin: 50% 0%;
