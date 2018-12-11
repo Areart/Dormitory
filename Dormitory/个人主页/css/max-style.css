@@ -26,6 +26,7 @@ header>ul{
     float: right;
 }
 header>ul>li{   
+    cursor: pointer;
     float: left;
     text-align: center;
     width:60px;
@@ -47,7 +48,7 @@ header>ul>li{
     padding: 0;
     z-index: 9;
 }
-#nav_main1>li{
+#nav_main1>li{    
     width: 80px;
     height: 30px;
     margin-top: 5px;
@@ -109,6 +110,7 @@ header>ul>li{
     position: relative;
 }
 .banner_imglist>ul>li{
+    cursor: pointer;
     position:absolute;
     width: 474.5px;
     height: 218.4px;
@@ -205,6 +207,7 @@ header>ul>li{
     margin-right: 60px;
 }
 #main-left>ul>li{
+    cursor: pointer;
     text-align: left;   
     height: 30px;
     line-height: 30px;
@@ -241,4 +244,8 @@ header>ul>li{
     border-radius: 5px;
     background: #ccc;
     margin-right: 15px;
+}
+#but_div:hover{
+    cursor: pointer;
+    letter-spacing: 1px;
 }
