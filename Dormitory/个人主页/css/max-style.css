@@ -286,6 +286,17 @@ header>ul>li{
     cursor: pointer;
     letter-spacing: 1px;
 }
+.ul_subNav{
+    margin: 0 auto;
+    text-align: center;
+
+}
+.ul_subNav>li{
+    display: inline-block;
+    size: 12px;
+    width: 20px;
+    height: 20px;
+}
 /* 尾部 */
 #footer{
     clear: both;
