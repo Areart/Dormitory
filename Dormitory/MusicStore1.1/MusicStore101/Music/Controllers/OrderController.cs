@@ -97,6 +97,7 @@ namespace Music.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
+           
             //1.确认用户是否登陆 是否登陆过期
             if (Session["loginUserSessionModel"] == null)
             {
@@ -107,22 +108,38 @@ namespace Music.Controllers
 
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
 
-
             //3.从会话中读出订单明细列表
 
             var order = Session["Order"] as Order;
 
             //4.如果表单验证通过，则保存order到数据库()，跳转到Pay/AliPay
 
+            var carts = order.OrderDetails.ToList();
+            foreach (var item in carts)
+            {
+                var detail = new OrderDetail()
+                {
+                    ID = item.ID,
+                    AlbumID = item.AlbumID,
+                    Album = _context.Albums.Find(item.Album.ID),
+                    Count = item.Count,
+                    Price = item.Album.Price,
+                };
+                _context.OrderDetails.Add(detail);
+            }
+            _context.SaveChanges();
             var od = new Order()
             {
                 AddresPerson = oder.AddresPerson,
+                Addders = oder.Addders,
                 Mobilnumber = oder.Mobilnumber,
+                PaySuccess = false,
                 Person = person,
-                TotalPrice = order.TotalPrice
+                TotalPrice = order.TotalPrice,
+                OrderDetails = order.OrderDetails
             };
             _context.Orders.Add(od);
-
+            _context.SaveChanges();
             //5.如果验证不通过，返回视图
 
             return View();
