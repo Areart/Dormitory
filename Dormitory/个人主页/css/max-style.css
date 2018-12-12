@@ -68,6 +68,7 @@ header>ul>li{
     float: left;
 }
 #logo>p{
+    cursor: pointer;
     text-align: center;
     line-height: 80px;
     font-size: 50px;
@@ -164,6 +165,7 @@ header>ul>li{
 }
 .banner_lineb>div{
     display: inline-block;
+    cursor: pointer;
     width: 35px;
     height: 35px;
     margin-right: 10px;
