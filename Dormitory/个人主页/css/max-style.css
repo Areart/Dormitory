@@ -297,6 +297,11 @@ header>ul>li{
     width: 20px;
     height: 20px;
 }
+.fenge{
+    width: 780px;
+    height: 20px;
+    background-color: #7c7c7c;
+}
 /* 尾部 */
 #footer{
     clear: both;
