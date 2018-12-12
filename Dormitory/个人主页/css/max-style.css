@@ -293,9 +293,17 @@ header>ul>li{
 }
 .ul_subNav>li{
     display: inline-block;
+    line-height: 25px;
+    text-align: center;
     size: 12px;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+}
+.ul_subNav>li:hover{
+    cursor: pointer;
+    size: 20px;
+    background-color: #ccc;
+    color: white;
 }
 .fenge{
     width: 780px;
