@@ -175,7 +175,8 @@ namespace Music.Controllers
             //3.读出订单明细
 
             var orders = _context.Orders.Where(x => x.Person.ID == person.ID ).ToList();
-            return View();
+            
+            return View(orders);
         }
     }
 }
