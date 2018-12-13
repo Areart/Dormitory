@@ -99,6 +99,11 @@ header>ul>li{
     border-radius: 5px;
     margin-bottom: 50px;
 }
+#main_header_div{
+    width: 780px;
+    height: 20px;
+    background: #7c7c7c;
+}
 /* 轮播图 */
 .banner{
     width: 780px;
