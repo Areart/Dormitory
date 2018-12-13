@@ -82,7 +82,7 @@ namespace Music.Controllers
                 htmlString += "<tr>";
                 htmlString += "<td><a href='" +Url.Action("Detail","Store",new {id = item.Album.ID }) + "'>" + item.Album.Title + "</a></td>";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td><i style=\"cursor: pointer\" class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i> " + item.Count + " <i  style=\"cursor: pointer\" class=\"glyphicon glyphicon-minus\" onclick=\"minus('" + item.ID + "')\"></i></td>";
+                htmlString += "<td>" + item.Count + " </td>";
                 htmlString += "<td><a href=\"#\" onclick=\"removeDetail('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\">移除购物车</i></a></td>";
             }
             htmlString += "<tr><td></td><td></td ><td>总价</td><td>" + totalPrice.ToString("C") + "</ td ></ tr >";
@@ -95,7 +95,7 @@ namespace Music.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order oder)
+        public ActionResult Buy(Order order)
         {
            
             //1.确认用户是否登陆 是否登陆过期
@@ -107,39 +107,50 @@ namespace Music.Controllers
             //2.读出当前用户Person
 
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            order.Person = _context.Persons.Find(person.ID);
 
             //3.从会话中读出订单明细列表
 
-            var order = Session["Order"] as Order;
+            order.OrderDetails = new List<OrderDetail>();
+            var details = (Session["Order"] as Order).OrderDetails;
+            foreach (var item in details)
+            {
+
+                item.Album = _context.Albums.Find(item.Album.ID);
+                order.OrderDetails.Add(item);
+            }
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum(); //Linq表达式;
 
             //4.如果表单验证通过，则保存order到数据库()，跳转到Pay/AliPay
 
-            var carts = order.OrderDetails.ToList();
-            foreach (var item in carts)
+            if (ModelState.IsValid)
             {
-                var detail = new OrderDetail()
+                //加锁
+                LockedHelp.ThreadLocked(order.ID);
+                try
                 {
-                    ID = item.ID,
-                    AlbumID = item.AlbumID,
-                    Album = _context.Albums.Find(item.Album.ID),
-                    Count = item.Count,
-                    Price = item.Album.Price,
-                };
-                _context.OrderDetails.Add(detail);
+                    _context.Orders.Add(order);
+
+                    //清空购物车
+                    var carts = _context.Carts.Where(x=>x.Person.ID==order.Person.ID);
+                    foreach (var item in order.OrderDetails)
+                    {
+
+                        _context.Carts.Remove(carts.FirstOrDefault(x => x.Album.ID == item.Album.ID));
+                    }
+
+                    _context.SaveChanges();
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    LockedHelp.ThreadUnlocked(order.ID);
+                }
+                //跳转到支付页Pay/AliPay
+                return RedirectToAction("Alipay", "Pay", new {id= order.ID});
             }
-            _context.SaveChanges();
-            var od = new Order()
-            {
-                AddresPerson = oder.AddresPerson,
-                Addders = oder.Addders,
-                Mobilnumber = oder.Mobilnumber,
-                PaySuccess = false,
-                Person = person,
-                TotalPrice = order.TotalPrice,
-                OrderDetails = order.OrderDetails
-            };
-            _context.Orders.Add(od);
-            _context.SaveChanges();
             //5.如果验证不通过，返回视图
 
             return View();
