@@ -35,6 +35,7 @@ namespace Music.Controllers
             {
                 person.PersonAddresss.Add(personAddress);
                 _context.SaveChanges();
+                return Content("<script>alert('添加成功!');location.href='" + Url.Action("index", "My") + "'</script>");
             }
             
             return View();
@@ -61,7 +62,7 @@ namespace Music.Controllers
                 htmlString += "<td style=\"width:250px\">"+item.AddresPerson+"</td>";
                 htmlString += "<td style=\"width:400px\">"+item.Address+"</td>";
                 htmlString += "<td style=\"width:100px\">"+item.MobileNumber+"</td>";
-                htmlString += "<td style=\"width:100px\"><button onclick=\"removeAddres("+item.ID+")\" class=\"btn btn-success\"><i class=\"glyphicon glyphicon-shopping - cart\"></i>删除</button></td>";
+                htmlString += "<td style=\"width:100px\"><button onclick=\"removeAddres('"+item.ID+"')\" class=\"btn btn-success\"><i class=\"glyphicon glyphicon-shopping - cart\"></i>删除</button></td>";
                 htmlString += "</tr>";
             }
             return Json(htmlString);
