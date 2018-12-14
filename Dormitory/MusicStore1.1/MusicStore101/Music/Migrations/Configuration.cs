@@ -18,15 +18,10 @@ namespace Music.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            //context.Database.ExecuteSqlCommand("delete AspNetUsers");
-            //context.Database.ExecuteSqlCommand("delete People");
-            //context.Database.ExecuteSqlCommand("delete Albums");
-            //context.Database.ExecuteSqlCommand("delete Artists");
-            //context.Database.ExecuteSqlCommand("delete Genres");
             //UserAndRoleSeed.AddRoles();
             //UserAndRoleSeed.AddUsers();
-            //GenreSeed.Seed();
-            //GenreSeed.Extend();
+            GenreSeed.Seed();
+            GenreSeed.Extend();
         }
     }
 }

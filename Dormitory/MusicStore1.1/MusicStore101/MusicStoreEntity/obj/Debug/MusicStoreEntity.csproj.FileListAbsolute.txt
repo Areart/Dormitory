@@ -26,3 +26,17 @@ C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作�
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll.config
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.pdb
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojAssemblyReference.cache
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csproj.CoreCompileInputs.cache
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csproj.CopyComplete
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
