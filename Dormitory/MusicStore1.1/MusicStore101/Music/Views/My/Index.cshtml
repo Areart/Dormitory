@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MusicStoreEntity.UserAndRole.PersonAddress>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>我的收货地址</h2>
+<table id="tbCart1">
+    <tr>
+        <td style="width: 100px">收件人</td>
+        <td style="width: 400px">收货地址</td>
+        <td style="width: 100px">电话</td>
+        <td style="width:200px"></td>
+    </tr>
+
+    <tbody id="tbCart">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td  style="width: 400px">
+                收件人： @item.AddresPerson
+            </td>
+            <td  style="width: 100px">
+                收货地址： @item.Address
+            </td>
+            <td  style="width: 100px">
+                @item.MobileNumber
+            </td>
+            <td  style="width: 100px">
+                <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
