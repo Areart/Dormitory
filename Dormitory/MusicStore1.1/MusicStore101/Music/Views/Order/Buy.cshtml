@@ -10,11 +10,11 @@
 <fieldset>
     
     <legend>收件信息</legend>
-    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person", @onchange = "changeValue()" })
+    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person"})
     <legend>您想购买的专辑列表</legend>
     @using (Html.BeginForm())
     {
-        
+                
         <table id="tbCart1">
             <tr>
                 <td>专辑名</td>
@@ -47,7 +47,7 @@
             </tbody>
         </table>
         <p>
-            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
+            <button type="submit" class="btn btn-success" onclick="changeValue()"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
         </p>
 
     }
@@ -74,6 +74,8 @@
         var index = obj.selectedIndex; // 选中索引
         var st = obj.options[index].value; // 选中值
         console.log(st);
+        @Model.Addders=st;
+
     }
 </script>
 

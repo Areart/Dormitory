@@ -56,15 +56,10 @@ namespace Music.Controllers
             
             var con = _context.Persons.Find(person.ID);
             var selectItemList = new List<SelectListItem>();
-            //new SelectListItem() { Value = "0", Text = "全部", Selected = true };
             foreach (var it in con.PersonAddresss.ToList())
             {
                 selectItemList.Add(new SelectListItem() { Value =it.ID.ToString(), Text ="收件人："+it.AddresPerson+"，收货地址："+it.Address+"，手机号："+it.MobileNumber, Selected = true });
             }
-      
-            //var se = new SelectList();          
-            //var selectList = new SelectList(con.PersonAddresss.ToList(), "AddresPerson", "AddresPerson");
-            //selectItemList.AddRange(selectList);
             ViewBag.Person = selectItemList;
             ViewBag.PersonID=null;
             return View(order);
@@ -109,7 +104,7 @@ namespace Music.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order order,string value)
+        public ActionResult Buy(Order order,string valueID)
         {
            
             //1.确认用户是否登陆 是否登陆过期
