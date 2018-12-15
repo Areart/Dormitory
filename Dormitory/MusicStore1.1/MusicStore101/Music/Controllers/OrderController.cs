@@ -53,14 +53,20 @@ namespace Music.Controllers
             //将订单和明细在视图呈现，验证用户收件人、地址、电话，供用户选择确认要购买专辑
             //当前订单未持久化，用户会话保存方便用户进行编辑
             Session["Order"] = order;
-
+            
             var con = _context.Persons.Find(person.ID);
-            var selectItemList = new List<SelectListItem>() {
-                new SelectListItem(){Value="0",Text="全部",Selected=true}
-            };
-            var selectList = new SelectList(con.PersonAddresss.ToList(), "AddresPerson", "AddresPerson");
-            selectItemList.AddRange(selectList);
-            ViewBag.database = selectItemList;
+            var selectItemList = new List<SelectListItem>();
+            //new SelectListItem() { Value = "0", Text = "全部", Selected = true };
+            foreach (var it in con.PersonAddresss.ToList())
+            {
+                selectItemList.Add(new SelectListItem() { Value =it.ID.ToString(), Text ="收件人："+it.AddresPerson+"，收货地址："+it.Address+"，手机号："+it.MobileNumber, Selected = true });
+            }
+      
+            //var se = new SelectList();          
+            //var selectList = new SelectList(con.PersonAddresss.ToList(), "AddresPerson", "AddresPerson");
+            //selectItemList.AddRange(selectList);
+            ViewBag.Person = selectItemList;
+            ViewBag.PersonID=null;
             return View(order);
         }
         [HttpPost]
@@ -103,7 +109,7 @@ namespace Music.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order order,string dr)
+        public ActionResult Buy(Order order,string value)
         {
            
             //1.确认用户是否登陆 是否登陆过期
