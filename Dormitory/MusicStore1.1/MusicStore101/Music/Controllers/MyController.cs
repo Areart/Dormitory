@@ -81,5 +81,18 @@ namespace Music.Controllers
          
             return View(address);
         }
+        public ActionResult MyIndex()
+        {
+            //1.确认用户是否登陆 是否登陆过期
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            }
+            var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            
+
+            return View(persons);
+        }
     }
 }

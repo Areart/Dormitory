@@ -262,6 +262,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\My\Add.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
+    <Content Include="Views\My\MyIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
