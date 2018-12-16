@@ -9,8 +9,6 @@
     <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_NewLayout.cshtml</WebStackScaffolding_LayoutPageFile>
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <ActiveDebugTarget />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

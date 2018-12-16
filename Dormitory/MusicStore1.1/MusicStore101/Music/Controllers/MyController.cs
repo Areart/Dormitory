@@ -78,6 +78,7 @@ namespace Music.Controllers
             }
             var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
             var address = _context.Persons.Find(persons.ID).PersonAddresss.ToList();
+         
             return View(address);
         }
     }

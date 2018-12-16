@@ -54,6 +54,7 @@
 </fieldset>
 
 <script>
+    var id;
     function removeDetail(id) {
         //移除订单明细
         $.ajax({
@@ -72,9 +73,16 @@
     function changeValue() {
         var obj = document.getElementById('Person'); //定位id
         var index = obj.selectedIndex; // 选中索引
-        var st = obj.options[index].value; // 选中值
-        console.log(st);
-        @Model.Addders=st;
+         id = obj.options[index].value; // 选中值
+        $.ajax({
+            type: "post",
+            async: true,
+            url: "../../Order/Buy",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+            }
+        });
 
     }
 </script>

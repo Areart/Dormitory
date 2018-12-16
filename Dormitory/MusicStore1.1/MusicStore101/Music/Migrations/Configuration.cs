@@ -20,8 +20,8 @@ namespace Music.Migrations
             //  to avoid creating duplicate seed data.
             //UserAndRoleSeed.AddRoles();
             //UserAndRoleSeed.AddUsers();
-            GenreSeed.Seed();
-            GenreSeed.Extend();
+            //GenreSeed.Seed();
+            //GenreSeed.Extend();
         }
     }
 }
