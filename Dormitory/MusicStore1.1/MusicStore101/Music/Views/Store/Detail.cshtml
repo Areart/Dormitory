@@ -42,7 +42,7 @@
         <div id="msg"></div>
     </p>
 </div>
-    <div id="bg1">
+    <div id="bg1" onclick="CD()">
         <span id="a"></span>
         <span id="b"></span>
         <span id="cd"></span>
@@ -52,7 +52,7 @@
 </div>
 <div class="pinl" id="album-details">
     <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User"><p id="User_name">花无缺：</p><span></span><span></span></div>
         <div id="div_User2"><p>这首歌太快了了</p></div>
     </div>
     <div id="User_pinl">
@@ -89,7 +89,7 @@
     </div>
     <div id="User_pinl">
         <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
+        <div id="div_User2"><p id="pl_user">这首歌太快了了</p></div>
     </div>
 </div>
 <script>
@@ -117,4 +117,9 @@
             }
         });
     });
+
+    function CD() {
+        var cd = document.getElementById("cd");
+        cd.style.transform = "rotate(660deg);";
+    }
 </script>
