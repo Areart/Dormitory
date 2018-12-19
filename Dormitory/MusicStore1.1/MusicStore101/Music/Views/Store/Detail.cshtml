@@ -41,17 +41,18 @@
             <a class="btn" id="addcart">添加到购物车</a>
             <div id="msg"></div>
         </p>
+        <div id="Music_div"><audio src="@Model.MusicUrl" controls="controls" id="audeo1"></audio></div> 
     </div>
     <div id="bg1">
         <span id="a"></span>
         <span id="b"></span>
-        <span id="cd">
+        <div id="cd">
             <span id="cd_1"></span>
-            <span id="cd_2"></span>
-        </span>
+            <img src="@Model.AlbumArtUrl" id="cd_2"/>
+        </div>
         <span id="cd_bg"></span>
-        <audio src="" id="audio1"></audio>
     </div>
+   
     <div class="pinl" id="album-details">
         <div id="User_pinl">
             <div id="div_User"><p id="User_name">花无缺：</p><span></span><span></span></div>
@@ -126,21 +127,33 @@
         var time;
         var jis = 0;
         var ji = 0;
+        var jj = 0;
         var myVideo = document.getElementById("audeo1");
+        var a = document.getElementById("a");
         function CDip() {
-            ji++;
+
             var cd = document.getElementById("cd");
-            cd.style.transform = 'rotate(' + ji/4 + 'deg' + ')';
+            
+            if (jj<216) {
+                jj++;
+                a.style.transform = 'rotate(' + jj / 4 + 'deg' + ')';
+            } else {
+                ji++;
+                cd.style.transform = 'rotate(' + ji / 4 + 'deg' + ')';
+                myVideo.play();
+            }
         }
         $("#bg1").click(function () {
             jis++;
             if (jis == 1) {
                 time = setInterval(CDip, 1);
-                myVideo.play();
+                
             }
             else {
                 clearInterval(time);
                 myVideo.pause();
+                jj = 0;
+                a.style.transform = 'rotate(0deg)';
                 jis = 0;
             }
            
