@@ -58,14 +58,15 @@
         <div id="pinl_textarea">
             <script id="editor" type="text/plain" style="width:100%;height:75%;"></script>
         </div>
-        <a href="#" id="pinl_bt" onclick="getContentTxt()">发表评论</a>
+        <p id="pinl_bt" onclick="getContentTxt()">发表评论</p>
     </div>
     <h4 style="color:#5e5b54;margin-top: 30px"><em>全部评论</em></h4>
     <div class="pinl" id="album-details">
         @foreach (var p in Model.Replys)
         {    <div>
-            <p>@p.Person.Name</p><p>@p.CreateDateTime</p>
-                 @p.Content
+              <p>@p.Person.Name</p>
+             <p>@p.CreateDateTime</p>
+              <p>@p.Content</p>
              </div>
         }
     </div>
@@ -81,9 +82,19 @@
     var ue = UE.getEditor('editor', { scaleEnabled: true });
     function getContentTxt() {
         var arr = [];
-            arr.push(UE.getEditor('editor').getContent());
-       
-        alert(arr);
+        arr.push(UE.getEditor('editor').getContentTxt());
+        var let = arr.join("\n");
+       alert (arr);
+         $.ajax({
+            type: 'post',
+            async: true,
+             url: '../../Store/Reply',
+             data: { id: "@Model.ID", content: let.toString() },
+             dataType: 'json',
+             success: function (data) {    
+                 $(".pinl").html(data);
+            }
+        });
     }
 </script>
 <script>

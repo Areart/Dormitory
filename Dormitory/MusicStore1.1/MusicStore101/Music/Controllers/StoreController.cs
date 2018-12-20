@@ -28,11 +28,13 @@ namespace Music.Controllers
                 Price =detail.Price,
                 PublisherDate = detail.PublisherDate,
                 AlbumArtUrl = detail.AlbumArtUrl,
+                Genre=detail.Genre,
+                Artist=detail.Artist,
                 MusicUrl = detail.MusicUrl,
                 Replys = reply
 
             };
-            return View(detail);
+            return View(cartVM);
         }
         /// <summary>
         /// 按分类显示专辑
@@ -54,11 +56,39 @@ namespace Music.Controllers
 
             return View(genres);
         }
-        public ActionResult Reply(Guid id,string content)
-        {
-           
+        [HttpPost]
+        public ActionResult Reply(Guid id, string content)
+         {
+            //判断用户是否登陆
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+            }
+            //查询出当前登陆用户
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            return View();
+            var replys= new Reply()
+            {
+                Title=person.Name,
+                Content=content,
+                Person=person,
+                Album=_context.Albums.Find(id),
+                ParentReply=null
+
+            };
+            _context.Replys.Add(replys);
+            _context.SaveChanges();
+            var reps = _context.Replys.Where(x=>x.Album.ID==id);
+            var htmlString = "";
+            foreach (var item in reps)
+            {
+                htmlString += "<div>";
+                htmlString += "<p>"+item.Title+"</p>";
+                htmlString += "<p>" + item.CreateDateTime + "</p>";
+                htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
+            }
+            return Json(htmlString);
         }
     }
 }
