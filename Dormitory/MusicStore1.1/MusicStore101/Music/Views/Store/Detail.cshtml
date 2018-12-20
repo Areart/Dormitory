@@ -56,7 +56,7 @@
     <h2>评论</h2>
     <div class="pinl_pinl">
         <div id="pinl_textarea">
-            <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+            <script id="editor" type="text/plain" style="width:100%;height:75%;"></script>
         </div>
         <a href="#" id="pinl_bt">发表评论</a>
     </div>
@@ -112,7 +112,7 @@
 <script src="~/UE/ueditor.all.min.js" type="text/javascript"></script>
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
-    var ue = UE.getEditor('editor');
+    var ue = UE.getEditor('editor',{scaleEnabled: true});
 </script>
 <script>
     $("#addcart").click(function () {
