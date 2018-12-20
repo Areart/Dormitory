@@ -25,4 +25,3 @@ C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作�
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
-C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
