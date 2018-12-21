@@ -20,13 +20,13 @@ namespace Music.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
-            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).ToList();
+            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
             var htmlString = "";
             foreach (var item in reply)
             {
+                htmlString += "<div id='pinl_main'>";
                 htmlString += "<div>";
-                htmlString += "<div>";
-                htmlString += "<img src="+item.Person.Avarda+">";
+                htmlString += "<img src=" + item.Person.Avarda + ">";
                 htmlString += "</div>";
                 htmlString += "<div>";
                 htmlString += "<p>" + item.Title + "</p>";
@@ -91,14 +91,19 @@ namespace Music.Controllers
              replys.ParentReply = replys;
             _context.Replys.Add(replys);
             _context.SaveChanges();
-            var reps = _context.Replys.Where(x=>x.Album.ID==id);
+            var reps = _context.Replys.Where(x=>x.Album.ID==id).OrderByDescending(x => x.CreateDateTime);
             var htmlString = "";
             foreach (var item in reps)
             {
+                htmlString += "<div id='pinl_main'>";
                 htmlString += "<div>";
-                htmlString += "<p>"+item.Title+"</p>";
+                htmlString += "<img src=" + item.Person.Avarda + ">";
+                htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<p>" + item.Title + "</p>";
                 htmlString += "<p>" + item.CreateDateTime + "</p>";
                 htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
                 htmlString += "</div>";
             }
             return Json(htmlString);
