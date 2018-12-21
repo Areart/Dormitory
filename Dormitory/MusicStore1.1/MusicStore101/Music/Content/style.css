@@ -43,6 +43,7 @@ body {
     height: 248px;
     position: absolute;
     background: url(/content/Images/cd.png) no-repeat center center;
+    background-size: 288px  288px;
     z-index: 999;
     border-radius: 50%;
     transform: rotateX(0);
@@ -188,4 +189,7 @@ body {
     line-height: 20px;
     background-color: #66b1de;
     border-radius: 5px;
+}
+.pinl>p:nth-child(1){
+
 }

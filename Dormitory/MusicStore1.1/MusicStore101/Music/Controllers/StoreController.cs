@@ -21,6 +21,20 @@ namespace Music.Controllers
         {
             var detail = _context.Albums.Find(id);
             var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).ToList();
+            var htmlString = "";
+            foreach (var item in reply)
+            {
+                htmlString += "<div>";
+                htmlString += "<div>";
+                htmlString += "<img src="+item.Person.Avarda+">";
+                htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<p>" + item.Title + "</p>";
+                htmlString += "<p>" + item.CreateDateTime + "</p>";
+                htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
+                htmlString += "</div>";
+            }
             var cartVM = new DetailReply()
             {
                 ID = detail.ID,
@@ -31,8 +45,7 @@ namespace Music.Controllers
                 Genre=detail.Genre,
                 Artist=detail.Artist,
                 MusicUrl = detail.MusicUrl,
-                Replys = reply
-
+                Replys = htmlString
             };
             return View(cartVM);
         }
@@ -57,6 +70,7 @@ namespace Music.Controllers
             return View(genres);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Reply(Guid id, string content)
          {
             //判断用户是否登陆
@@ -70,12 +84,11 @@ namespace Music.Controllers
             var replys= new Reply()
             {
                 Title=person.Name,
-                Content=content,
-                Person=person,
-                Album=_context.Albums.Find(id),
-                ParentReply=null
-
+                Content = content,
+                Person=_context.Persons.Find(person.ID),
+                Album=_context.Albums.Find(id)
             };
+             replys.ParentReply = replys;
             _context.Replys.Add(replys);
             _context.SaveChanges();
             var reps = _context.Replys.Where(x=>x.Album.ID==id);
