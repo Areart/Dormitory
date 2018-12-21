@@ -76,7 +76,6 @@
     var ue = UE.getEditor('editor', { scaleEnabled: true });
     function getContentTxt() {
         var arr = UE.getEditor('editor').getPlainTxt().toString();
-        alert(arr);
          $.ajax({
             type: 'post',
             async: true,
@@ -84,7 +83,6 @@
              data: { id: "@Model.ID", content: arr },
              dataType: 'json',
              success: function (data) {
-                alert(data);
                  $(".pinl").html(data);
             }
         });
@@ -150,10 +148,5 @@
        }
 
    });
-
-   /*评论*/
-
-
-
 </script>
 
