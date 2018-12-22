@@ -40,3 +40,5 @@ E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NE
 E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
 C:\Users\Administrator\Desktop\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+E:\作业\127宿舍\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml

@@ -33,6 +33,20 @@ namespace Music.Controllers
                 htmlString += "<p>" + item.CreateDateTime + "</p>";
                 htmlString += "<p>" + item.Content + "</p>";
                 htmlString += "</div>";
+                htmlString += "<div>";
+                if (item.ParentReply.ID!= item.ID)
+                {
+                    htmlString += "<div>";
+                    htmlString += "<img src=" + item.ParentReply.Person.Avarda + ">";
+                    htmlString += "</div>";
+                    htmlString += "<div>";
+                    htmlString += "<p>" + item.ParentReply.Title + "</p>";
+                    htmlString += "<p>" + item.ParentReply.CreateDateTime + "</p>";
+                    htmlString += "<p>" + item.ParentReply.Content + "</p>";
+                    htmlString += "</div>";
+                }
+                htmlString += "<div>";
+                htmlString += "</div>";
                 htmlString += "</div>";
             }
             var cartVM = new DetailReply()
