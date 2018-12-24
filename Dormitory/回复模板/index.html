@@ -7,26 +7,53 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>回复</title>
     <style>
-        #reply {
-            animation: 10s all;
-            width: 100px;
+        #warpt {
+            margin: 100px auto;
+            width: 300px;
             height: auto;
         }
 
-        #reply>div {
-            width: 100px;
-            height: 500px;
-            background: red;
-            display: none;
+        #pinl_main {
+            width: 100%;
+        }
+
+        #pinl_main_main {
+            width: 100%;
+            border-bottom: 1px solid #333;
+        }
+
+        #pinl_main_main>div:nth-child(1) {
+            width: 20%;
+            margin-right: 5%;
+            float: left;
+        }
+
+        #pinl_main_main>div:nth-child(2) {
+            width: 70%;
+            margin-left: 5%;
+            float: left;
+        }
+
+        #pinl_main_main>div:nth-child(3) {
+            clear: both;           
+        }
+        #pinl_main_main>div:nth-child(3)>ul{
+            clear: both;       
+           
+            text-align: left;
+        } 
+        #pinl_main_main>div:nth-child(3)>ul>li{
+            display: inline-block;
+            margin-right: 5%;    
         }
     </style>
 
 </head>
 
 <body>
-    <div>
+    <div id="warpt">
         <div id="pinl_main">
-            <div>
+            <div id="pinl_main_main">
                 <div>
                     <img src="" alt="图片显示失败">
                 </div>
@@ -42,22 +69,24 @@
                     </ul>
                 </div>
             </div>
-            <div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <p></p>
-                    <p></p>
-                </div>
-                <div>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+            <div id="pinl_main_second">
+                <div id="pinl_main_main">
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div>
+                        <ul>                            
+                            <li>2018-12-24</li>
+                            <li>回复</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>
