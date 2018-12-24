@@ -62,7 +62,11 @@
     </div>
     <h4 style="color:#5e5b54;margin-top: 30px"><em>全部评论</em></h4>
     <div class="pinl" id="album-details">
-       @Html.Raw(Model.Replys)
+        <div id="pinl_main">
+            @Html.Raw(Model.Replys)
+        </div>
+
+      
     </div>
 </div>
 
@@ -148,5 +152,14 @@
        }
 
    });
+</script>
+<script>
+    function on(obj) {
+        obj.style.background = "#e0e0e0";
+        obj.style.cursor="pointer";
+    }
+    function out(obj) {
+        obj.style.background = "";
+    }
 </script>
 

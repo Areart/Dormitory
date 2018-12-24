@@ -20,32 +20,24 @@ namespace Music.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
-            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
+            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).Where(x=>x.ID==x.ParentReply.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
             var htmlString = "";
             foreach (var item in reply)
             {
-                htmlString += "<div id='pinl_main'>";
+                htmlString += "<div id='pinl_main_main'>";
                 htmlString += "<div>";
                 htmlString += "<img src=" + item.Person.Avarda + ">";
                 htmlString += "</div>";
                 htmlString += "<div>";
                 htmlString += "<p>" + item.Title + "</p>";
-                htmlString += "<p>" + item.CreateDateTime + "</p>";
                 htmlString += "<p>" + item.Content + "</p>";
                 htmlString += "</div>";
                 htmlString += "<div>";
-                if (item.ParentReply.ID!= item.ID)
-                {
-                    htmlString += "<div>";
-                    htmlString += "<img src=" + item.ParentReply.Person.Avarda + ">";
-                    htmlString += "</div>";
-                    htmlString += "<div>";
-                    htmlString += "<p>" + item.ParentReply.Title + "</p>";
-                    htmlString += "<p>" + item.ParentReply.CreateDateTime + "</p>";
-                    htmlString += "<p>" + item.ParentReply.Content + "</p>";
-                    htmlString += "</div>";
-                }
-                htmlString += "<div>";
+                htmlString += "<ul>";
+                htmlString += "<li></li>";
+                htmlString += "<li>"+item.CreateDateTime+"</li>";
+                htmlString += "<li onmouseover='on(this)' onmouseout='out(this)'>回复</li>";
+                htmlString += "</ul>";
                 htmlString += "</div>";
                 htmlString += "</div>";
             }
@@ -109,14 +101,20 @@ namespace Music.Controllers
             var htmlString = "";
             foreach (var item in reps)
             {
-                htmlString += "<div id='pinl_main'>";
+                htmlString += "<div id='pinl_main_main'>";
                 htmlString += "<div>";
                 htmlString += "<img src=" + item.Person.Avarda + ">";
                 htmlString += "</div>";
                 htmlString += "<div>";
                 htmlString += "<p>" + item.Title + "</p>";
-                htmlString += "<p>" + item.CreateDateTime + "</p>";
                 htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<ul>";
+                htmlString += "<li></li>";
+                htmlString += "<li>" + item.CreateDateTime + "</li>";
+                htmlString += "<li>回复</li>";
+                htmlString += "</ul>";
                 htmlString += "</div>";
                 htmlString += "</div>";
             }
