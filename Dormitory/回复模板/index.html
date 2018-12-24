@@ -11,16 +11,18 @@
             margin: 100px auto;
             width: 300px;
             height: auto;
-           
+
         }
 
         #pinl_main {
             width: 100%;
             border-bottom: 1px solid #333;
+            height: auto;
         }
 
         #pinl_main_main {
-            width: 100%;            
+            width: 100%;
+            height: auto;
         }
 
         #pinl_main_main>div:nth-child(1) {
@@ -28,37 +30,45 @@
             margin-right: 5%;
             float: left;
         }
-        #pinl_main_main>div:nth-child(1)>img{
-            width:50px ;
+
+        #pinl_main_main>div:nth-child(1)>img {
+            width: 50px;
             height: 50px;
             border-radius: 50%;
         }
+
         #pinl_main_main>div:nth-child(2) {
             width: 80%;
             margin-left: 5%;
             float: left;
         }
-        #pinl_main_main>div:nth-child(2)>p:nth-last-child(1){
+
+        #pinl_main_main>div:nth-child(2)>p:nth-last-child(1) {
             word-break: break-all;
-            
+
         }
+
         #pinl_main_main>div:nth-child(3) {
-            clear: both;           
+            clear: both;
         }
-        #pinl_main_main>div:nth-child(3)>ul{
-            clear: both;       
-           
+
+        #pinl_main_main>div:nth-child(3)>ul {
+            clear: both;
+
             text-align: left;
-        } 
-        #pinl_main_main>div:nth-child(3)>ul>li{
+        }
+
+        #pinl_main_main>div:nth-child(3)>ul>li {
             cursor: pointer;
             display: inline-block;
-            margin-right: 5%;    
+            margin-right: 5%;
         }
-        #pinl_main_second{
+
+        #pinl_main_second {
+            clear: both;
             width: 80%;
+            height: auto;
             float: right;
-            display: none;
         }
     </style>
 
@@ -83,6 +93,7 @@
                     </ul>
                 </div>
             </div>
+            <p onclick="openmain()">查看所有回复</p>
             <div id="pinl_main_second">
                 <div id="pinl_main_main">
                     <div>
@@ -93,23 +104,28 @@
                         <p></p>
                     </div>
                     <div>
-                        <ul>                            
+                        <ul>
                             <li>2018-12-24</li>
                             <li>回复</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
 </body>
 <script>
-function on(obj){
-    obj.style. background="red";
-}
-function out(obj){
-    obj.style. background="";
-}
+    function on(obj) {
+        obj.style.background = "red";
+    }
+    function out(obj) {
+        obj.style.background = "";
+    }
+    function openmain() {
+        var d = document.getElementById('pinl_main_second');
+        d.style.display = "block";
+    }
 </script>
-</html> 
+
+</html>
