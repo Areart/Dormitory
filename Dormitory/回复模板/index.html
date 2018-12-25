@@ -16,7 +16,6 @@
 
         #pinl_main {
             width: 100%;
-            border-bottom: 1px solid #333;
             height: auto;
         }
 
@@ -69,6 +68,14 @@
             width: 80%;
             height: auto;
             float: right;
+            margin-right: 10px;
+            display: none;
+        }
+        hr{
+            clear: both;
+            height: 2px;
+            background-color: #ccc;
+            border: none;
         }
     </style>
 
@@ -89,11 +96,11 @@
                     <ul>
                         <li>#1</li>
                         <li>2018-12-24</li>
-                        <li onmouseover="on(this)" onmouseout="out(this)">回复</li>
+                        <li onmouseover="on(this)" onmouseout="out(this)" onclick="tian(this)">回复</li>
                     </ul>
                 </div>
             </div>
-            <p onclick="openmain()">查看所有回复</p>
+            <p onclick="openmain(this)">查看所有回复</p>
             <div id="pinl_main_second">
                 <div id="pinl_main_main">
                     <div>
@@ -101,16 +108,17 @@
                     </div>
                     <div>
                         <p></p>
-                        <p></p>
+                        <p>dsadsadsadsadsadsadasdasdsadsadasdasdasdsadsadsadsadsadsadasdasdsadsadasdasdasdsadsadsadsadsadsadasdasdsadsadasdasdasdsadsadsadsa</p>
                     </div>
                     <div>
                         <ul>
                             <li>2018-12-24</li>
-                            <li>回复</li>
+                            <li onmouseover="on(this)" onmouseout="out(this)" onclick="tian(this)">回复</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <hr>
         </div>
 
     </div>
@@ -122,9 +130,25 @@
     function out(obj) {
         obj.style.background = "";
     }
-    function openmain() {
+    function openmain(obj) {
+        obj.style.display="none";
         var d = document.getElementById('pinl_main_second');
         d.style.display = "block";
+    }
+    var s=0;
+    function tian(obj){
+        s++;
+        if(s==1){
+          var div=obj.parentNode;
+        div.innerHTML=div.innerHTML+"<p id='xintian'>这个是新添加的文本</p>";
+        }
+        else
+        {
+            var shan=document.getElementById('xintian');
+            shan.remove();
+            s=0;
+        }
+       
     }
 </script>
 
