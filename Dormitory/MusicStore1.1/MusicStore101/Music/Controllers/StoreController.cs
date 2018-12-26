@@ -48,14 +48,22 @@ namespace Music.Controllers
 
                 if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count>0)
                 {
-                    foreach (var ry in prenreply.Where(x => x.ParentReply.ID == item.ID).ToList())
+                    foreach (var ry in prenreply.Where(x => x.ParentReply.ID == item.ID).OrderBy(x => x.CreateDateTime).ToList())
                     {
                         htmlString += "<div id='pinl_main_main'>";//第一层
                         htmlString += "<div style='margin-bottom:50px'>";//第一层中的图片
                         htmlString += "<img style='width:40px;height:40px'  src=" + ry.Person.Avarda + ">";
                         htmlString += "</div>";//图片结束
                         htmlString += "<div>";//评论内容
-                        htmlString += "<p>" + ry.Title + " 回复  " + item.Title + " : " + ry.Content + "</p>";
+                        if (_context.Replys.Find(ry.ParentReplyNameID)!= null)
+                        {
+                            htmlString += "<p>" + ry.Title + " 回复  " + _context.Replys.Find(ry.ParentReplyNameID).Title + " : " + ry.Content + "</p>";
+                        }
+                        else
+                        {
+                            htmlString += "<p>" + ry.Title + " 回复  " + item.Title + " : " + ry.Content + "</p>";
+                        }
+                      
                         htmlString += "</div>";//内容结束
                         htmlString += "<div>";//第一层中的功能栏
                         htmlString += "<ul id='" + ry.ID + "'>";
@@ -108,12 +116,12 @@ namespace Music.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Reply(Guid id,Guid replyID, string content,string contentreply,string contentreplys)
+        public ActionResult Reply(Guid id,Guid replyID, string content,string contentreply)
          {
             //判断用户是否登陆
             if (Session["loginUserSessionModel"] == null)
             {
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+                return Json("OK");
             }
             //查询出当前登陆用户
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
@@ -126,6 +134,7 @@ namespace Music.Controllers
             };
             if (contentreply != null)
             {
+                //判断回复的是否是评论
                 if (_context.Replys.Find(replyID).ID== _context.Replys.Find(replyID).ParentReply.ID)
                 {
                     replys.Content = contentreply;
@@ -133,7 +142,9 @@ namespace Music.Controllers
                 }
                 else
                 {
-                    
+                    replys.Content = contentreply;
+                    replys.ParentReply = _context.Replys.Find(replyID).ParentReply;
+                    replys.ParentReplyNameID = replyID;
                 }
             }
             else
@@ -172,7 +183,7 @@ namespace Music.Controllers
 
                 if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 0)
                 {
-                    foreach (var ry in prenreply.Where(x => x.ParentReply.ID == item.ID).ToList())
+                    foreach (var ry in prenreply.Where(x => x.ParentReply.ID == item.ID).OrderBy(x=>x.CreateDateTime).ToList())
                     {
 
                         htmlString += "<div id='pinl_main_main'>";//第一层
@@ -180,7 +191,15 @@ namespace Music.Controllers
                         htmlString += "<img style='width:40px;height:40px'  src=" + ry.Person.Avarda + ">";
                         htmlString += "</div>";//图片结束
                         htmlString += "<div>";//评论内容
-                        htmlString += "<p>" + ry.Title + " 回复  " + item.Title + " : " + ry.Content + "</p>";
+                        if (_context.Replys.Find(ry.ParentReplyNameID) != null)
+                        {
+                            htmlString += "<p>" + ry.Title + " 回复  " + _context.Replys.Find(ry.ParentReplyNameID).Title + " : " + ry.Content + "</p>";
+                        }
+                        else
+                        {
+                            htmlString += "<p>" + ry.Title + " 回复  " + item.Title + " : " + ry.Content + "</p>";
+                        }
+
                         htmlString += "</div>";//内容结束
                         htmlString += "<div>";//第一层中的功能栏
                         htmlString += "<ul id='" + ry.ID + "'>";
