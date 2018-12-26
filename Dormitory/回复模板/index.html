@@ -96,7 +96,7 @@
                     <ul>
                         <li>#1</li>
                         <li>2018-12-24</li>
-                        <li onmouseover="on(this)" onmouseout="out(this)" onclick="tian(this)">回复</li>
+                        <li onmouseover="on(this)" onmouseout="out(this)" onclick="tian('大师傅撒地方')">回复</li>
                     </ul>
                 </div>
             </div>
@@ -137,6 +137,7 @@
     }
     var s=0;
     function tian(obj){
+        alert(obj);
         s++;
         if(s==1){
           var div=obj.parentNode;
