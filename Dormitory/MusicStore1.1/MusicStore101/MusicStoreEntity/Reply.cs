@@ -32,11 +32,12 @@ namespace MusicStoreEntity
         [Required]
         public virtual Reply ParentReply { get; set; }   //上级回复
 
-        
-        public virtual Reply ParentReplySub { get; set; } //子回复
-
-
+        public Guid ParentReplyNameID { get; set; } //子回复ID
+        public string ParentReplyName { get; set; }//子回复名字
         public DateTime CreateDateTime { get; set; }  //回复时间
+
+        public int Like { get; set; } = 0;  //赞
+        public int Hate { get; set; } = 0; //踩
 
         public Reply()
         {
