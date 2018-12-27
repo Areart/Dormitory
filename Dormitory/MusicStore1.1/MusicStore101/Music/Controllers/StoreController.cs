@@ -41,6 +41,8 @@ namespace Music.Controllers
                 htmlString += "<li>#"+louc+"</li>";
                 htmlString += "<li>"+item.CreateDateTime+"</li>";
                 htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
@@ -70,6 +72,8 @@ namespace Music.Controllers
                         htmlString += "<li></li>";
                         htmlString += "<li>" + ry.CreateDateTime + "</li>";
                         htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
+                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
                         htmlString += "</ul>";
                         htmlString += "</div>";//功能栏结束
                         htmlString += "</div>";//第一层结束
@@ -180,6 +184,8 @@ namespace Music.Controllers
                 htmlString += "<li>#" + louc + "</li>";
                 htmlString += "<li>" + item.CreateDateTime + "</li>";
                 htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
@@ -210,6 +216,8 @@ namespace Music.Controllers
                         htmlString += "<li></li>";
                         htmlString += "<li>" + ry.CreateDateTime + "</li>";
                         htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
+                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
                         htmlString += "</ul>";
                         htmlString += "</div>";//功能栏结束
                         htmlString += "</div>";//第一层结束
