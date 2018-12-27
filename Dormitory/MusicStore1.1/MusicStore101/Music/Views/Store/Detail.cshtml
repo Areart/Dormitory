@@ -92,7 +92,7 @@
                     $(".pinl").html(data);
                     setTimeout(function () {
                         location.reload();
-                    }, 1000);
+                    }, 10);
                 }
             }
         });
@@ -145,15 +145,25 @@
                 $(".pinl").html(data);
                 setTimeout(function () {
                     location.reload();
-                }, 1000);
+                }, 10);
             }
         });
     }
     //查看所有回复
     function openmain(obj) {
-        obj.parentNode.getElementById('pinl_main_second');
-        alert(obj.width);
-        //var d = document.getElementById('pinl_main_second');
+
+
+        var d = document.getElementsByClassName('pinl_reply');
+        var p = document.getElementsByClassName('pinl_p');
+        for (var i = 0; i < p.length; i++) {
+            p[i].index = i;
+            p[i].onClick = function () {
+                alert("66666");
+                for (var t = 0; t < d.length; i++) {
+                    d[t].style.display = "block";
+                }
+            }
+        }
         //d.style.display = "block";
     }
 </script>
