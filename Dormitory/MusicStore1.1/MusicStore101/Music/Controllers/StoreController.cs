@@ -23,7 +23,7 @@ namespace Music.Controllers
             var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).Where(x => x.ID == x.ParentReply.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
             var prenreply=_context.Replys.Where(x => x.Album.ID == detail.ID).Where(x => x.ID != x.ParentReply.ID).OrderByDescending(x => x.CreateDateTime).ToList();
             var htmlString = "";
-            var louc = reply.Count+1;
+            var louc = reply.Count+1;//用于显示楼层
             foreach (var item in reply)
             {
                 louc--;
@@ -40,13 +40,13 @@ namespace Music.Controllers
                 htmlString += "<ul id='"+item.ID+"'>";
                 htmlString += "<li>#"+louc+"</li>";
                 htmlString += "<li>"+item.CreateDateTime+"</li>";
-                htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                htmlString += "<li onclick='ADD(this)'>回复</li>";
                 htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
                 htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
-                htmlString += "<div id='pinl_main_second'  class='pinl_reply'>";//第二层回复
+                htmlString += "<div id='pinl_main_second'   class='a" + louc + "'>";//第二层回复
 
                 if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count>0)
                 {
@@ -71,7 +71,7 @@ namespace Music.Controllers
                         htmlString += "<ul id='" + ry.ID + "'>";
                         htmlString += "<li></li>";
                         htmlString += "<li>" + ry.CreateDateTime + "</li>";
-                        htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                        htmlString += "<li onclick='ADD(this)'>回复</li>";
                         htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</li>";
                         htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</li>";
                         htmlString += "</ul>";
@@ -81,7 +81,7 @@ namespace Music.Controllers
 
                 }
                 htmlString += "</div>";//第二层回复结束
-                htmlString += "<p class='pinl_p'>查看所有回复</p>";
+                htmlString += "<p class='pinl_p' id='a"+louc+ "' onclick='openmain(this)'>查看所有回复</p>";
                 htmlString += "<hr>";
                 htmlString += "</div>";
             }
@@ -119,6 +119,15 @@ namespace Music.Controllers
 
             return View(genres);
         }
+
+        /// <summary>
+        /// 回复兼子回复
+        /// </summary>
+        /// <param name="id">专辑ID</param>
+        /// <param name="replyID">被回复的人的ID</param>
+        /// <param name="content">回复内容</param>
+        /// <param name="contentreply">子回复内容</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Reply(Guid id,Guid replyID, string content,string contentreply)
@@ -160,12 +169,11 @@ namespace Music.Controllers
             _context.Replys.Add(replys);
             _context.SaveChanges();
             var reps = _context.Replys.Where(x=>x.Album.ID==id).Where(x=>x.ID==x.ParentReply.ID).OrderByDescending(x => x.CreateDateTime).ToList();
-             var prenreply = _context.Replys.Where(x => x.Album.ID == id).Where(x => x.ID != x.ParentReply.ID).OrderByDescending(x => x.CreateDateTime).ToList();
+            var prenreply = _context.Replys.Where(x => x.Album.ID == id).Where(x => x.ID != x.ParentReply.ID).OrderByDescending(x => x.CreateDateTime).ToList();
             var htmlString = "";
             var louc = reps.Count + 1;
             foreach (var item in reps)
             {
-
                 louc--;
                 htmlString += "<div id='pinl_main'>";//最外层
                 htmlString += "<div id='pinl_main_main'>";//第一层
@@ -180,19 +188,18 @@ namespace Music.Controllers
                 htmlString += "<ul id='" + item.ID + "'>";
                 htmlString += "<li>#" + louc + "</li>";
                 htmlString += "<li>" + item.CreateDateTime + "</li>";
-                htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                htmlString += "<li onclick='ADD(this)'>回复</li>";
                 htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
                 htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
-                htmlString += "<div id='pinl_main_second'>";//第二层回复
+                htmlString += "<div id='pinl_main_second'   class='a" + louc + "'>";//第二层回复
 
                 if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 0)
                 {
-                    foreach (var ry in prenreply.Where(x => x.ParentReply.ID == item.ID).OrderBy(x=>x.CreateDateTime).ToList())
+                    foreach (var ry in prenreply.Where(x => x.ParentReply.ID == item.ID).OrderBy(x => x.CreateDateTime).ToList())
                     {
-
                         htmlString += "<div id='pinl_main_main'>";//第一层
                         htmlString += "<div style='margin-bottom:50px'>";//第一层中的图片
                         htmlString += "<img style='width:40px;height:40px'  src=" + ry.Person.Avarda + ">";
@@ -212,9 +219,9 @@ namespace Music.Controllers
                         htmlString += "<ul id='" + ry.ID + "'>";
                         htmlString += "<li></li>";
                         htmlString += "<li>" + ry.CreateDateTime + "</li>";
-                        htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
-                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
-                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
+                        htmlString += "<li onclick='ADD(this)'>回复</li>";
+                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</li>";
+                        htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</li>";
                         htmlString += "</ul>";
                         htmlString += "</div>";//功能栏结束
                         htmlString += "</div>";//第一层结束
@@ -222,6 +229,7 @@ namespace Music.Controllers
 
                 }
                 htmlString += "</div>";//第二层回复结束
+                htmlString += "<p class='pinl_p' id='a" + louc + "' onclick='openmain(this)'>查看所有回复</p>";
                 htmlString += "<hr>";
                 htmlString += "</div>";
             }
