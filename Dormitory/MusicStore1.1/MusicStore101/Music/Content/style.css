@@ -217,38 +217,37 @@ body {
 
     #pinl_main_main > div:nth-child(1) {
         width: 10%;
-        margin-right: 5%;
+        margin-right: 2%;
         float: left;
     }
 
         #pinl_main_main > div:nth-child(1) > img {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto;
+            width: 100%;
+            height: auto;
             border-radius: 50%;
         }
 
     #pinl_main_main > div:nth-child(2) {
-        width: 80%;
-        margin-left: 5%;
+        width: 86%;
+        margin-left: 2%;
         float: left;
     }
 
         #pinl_main_main > div:nth-child(2) > p:nth-last-child(1) {
             word-break: break-all;
-            max-height: 200px;
+            max-height: 500px;
             overflow: auto;
         }
 
     #pinl_main_main > div:nth-child(3) {
-        clear: both;
-        width: 80%;
+        width: 86%;
         float: right;
     }
 
         #pinl_main_main > div:nth-child(3) > ul {
             clear: both;
             text-align: left;
+            font-size: 12px;
         }
 
             #pinl_main_main > div:nth-child(3) > ul > li {
@@ -263,7 +262,7 @@ body {
 
             }
 #pinl_main_second {
-    width: 80%;
+    width: 85%;
     float: right;
     display: none;
 }
@@ -279,4 +278,7 @@ hr {
     text-align: left;
     text-indent:30%;
     cursor: pointer;
+}
+.pinl_p:hover {
+   color:#f6857d;
 }

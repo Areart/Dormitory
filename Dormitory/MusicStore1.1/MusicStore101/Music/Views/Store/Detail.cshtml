@@ -81,7 +81,7 @@
         $.ajax({
             type: 'post',
             async: true,
-            url: '../../Store/Reply',
+            url: '@Url.Action("Reply", "Store")',
             data: { id: "@Model.ID", replyID: "00000000-0000-0000-0000-000000000000", content: arr },
             dataType: 'json',
             success: function (data) {
@@ -123,7 +123,7 @@
         $.ajax({
             type: 'post',
             async: true,
-            url: '../../Store/Reply',
+            url: '@Url.Action("Reply","Store")',
             data: { id: "@Model.ID", replyID:ID, contentreply: arr },
             dataType: 'json',
             success: function (data) {
@@ -143,6 +143,57 @@
         pin.style.display = "block";
         obj.style.display = "none";
     }
+
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "pid":id},
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+
+    //踩
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("Hate", "Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+
+    //查看所有对话
+
+
+    //图片自适应
+    function imgwidth() {
+        var img = document.getElementsByClassName('pinl')[0].getElementsByTagName('img');
+    }
+    function imgWidth(obj) {
+        var s = obj.width;
+        obj.style.height =s+"px";
+    }
+
 </script>
 <!-- 试听和添加购物车 -->
 <script>
@@ -152,7 +203,7 @@
         $.ajax({
            type: 'post',
             async: true,
-            url: '../../ShoppingCart/AddCart',
+            url: '@Url.Action("AddCart","ShoppingCart")',
             data: { id: "@Model.ID" },
             dataType: 'json',
             success: function (data) {
