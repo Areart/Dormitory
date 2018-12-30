@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicStoreEntity.UserAndRole;
 
 namespace MusicStoreEntity
 {
@@ -11,6 +12,7 @@ namespace MusicStoreEntity
         public Guid ID { get; set; }
         public virtual Reply Reply { get; set; }
         public  bool IsNotLike { get; set; }
+        public  Person Persons { get; set; }
         public  DateTime CreateDateTime { get; set; }
 
         public LikeReply()

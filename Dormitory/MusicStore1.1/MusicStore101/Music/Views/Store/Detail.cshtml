@@ -145,18 +145,23 @@
     }
 
     //点赞
-    function Like(id) {
+    function Like(obj) {
+        var id = obj.parentNode.id;
         $.ajax({
             type: 'post',
             async: true,
-            url: '@Url.Action("Like","Store")',
-            data: { "pid":id},
+            url: '@Url.Action("LikeOrHate","Store")',
+            data: { id: id, LikeOrHate: true },
             dataType: 'json',
             success: function (data) {
                 if (data == "OK") {
                     location.href =
                         "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                } else {
+                }
+                else if (data == "OKT") {
+                    alert("你已赞过或踩过");
+                }
+                else {
                     $(".pinl").html(data);
                 }
             }
@@ -164,18 +169,22 @@
     }
 
     //踩
-    function hate(id) {
+    function hate(obj) {
+        var id = obj.parentNode.id;
         $.ajax({
             type: 'post',
             async: true,
-            url: '@Url.Action("Hate", "Store")',
-            data: { "pid": id },
+            url: '@Url.Action("LikeOrHate","Store")',
+            data: { id: id, LikeOrHate: false },
             dataType: 'json',
             success: function (data) {
                 if (data == "OK") {
                     location.href =
                         "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                } else {
+                } else if(data=="OKT") {
+                    alert("你已赞过或踩过");
+                }
+                else {
                     $(".pinl").html(data);
                 }
             }
@@ -184,15 +193,6 @@
 
     //查看所有对话
 
-
-    //图片自适应
-    function imgwidth() {
-        var img = document.getElementsByClassName('pinl')[0].getElementsByTagName('img');
-    }
-    function imgWidth(obj) {
-        var s = obj.width;
-        obj.style.height =s+"px";
-    }
 
 </script>
 <!-- 试听和添加购物车 -->
